@@ -23,10 +23,26 @@
 
 @end
 
+@interface CALayer (ScrollAdd)
+
+@property (nonatomic) CGFloat left;
+@property (nonatomic) CGFloat top;
+@property (nonatomic) CGFloat right;
+@property (nonatomic) CGFloat bottom;
+@property (nonatomic) CGFloat width;
+@property (nonatomic) CGFloat height;
+@property (nonatomic) CGPoint center;
+@property (nonatomic) CGFloat centerX;
+@property (nonatomic) CGFloat centerY;
+@property (nonatomic) CGPoint origin;
+@property (nonatomic, getter=frameSize, setter=setFrameSize:) CGSize  size;
+
+@end
+
 @interface ScrollYearView ()<UIScrollViewDelegate>
 
 @property(nonatomic,strong) UIScrollView *tableView;
-
+@property(nonatomic,strong) UIImageView *imageView;
 
 @end
 
@@ -37,6 +53,7 @@
     self = [super initWithFrame:frame];
     if (self) {
         [self addSubview:self.tableView];
+        [self addSubview:self.imageView];
         [self drawLine];
     }
     return self;
@@ -68,10 +85,11 @@
 
 - (void) drawLine{
     
+//    UIImage *stretchableImage = (id)[UIImage imageNamed:@"scale_text"];
     CGColorRef color = [UIColor whiteColor].CGColor;
     CGFloat cornerRadius = 50;
     CGFloat lineWidth = 5;
-    CGFloat startX = self.tableView.width - lineWidth;
+    CGFloat startX = 0;//self.tableView.width - lineWidth;
     CGFloat lineH = (self.tableView.height - cornerRadius*2 - lineWidth*2)*0.5;
     
     CAShapeLayer *lineLayer = [CAShapeLayer layer];
@@ -95,14 +113,19 @@
     [linePath2 moveToPoint:CGPointMake(startX, linePathY)];
     [linePath2 addLineToPoint:CGPointMake(startX, lineH+linePathY)];
     [linePath appendPath:linePath2];
-    
     lineLayer.path = linePath.CGPath;
     
-//    lineLayer.contents = (__bridge id _Nullable)[UIImage imageNamed:@"scale_text"].CGImage;
-    UIImage *stretchableImage = (id)[UIImage imageNamed:@"scale_text"];
-    self.tableView.layer.contents = (id)stretchableImage.CGImage;
-    self.tableView.layer.contentsScale = [UIScreen mainScreen].scale;
-    self.tableView.layer.contentsCenter = CGRectMake(15.0/stretchableImage.size.width,0.0/stretchableImage.size.height,1.0/stretchableImage.size.width,0.0/stretchableImage.size.height);
+    lineLayer.height = lineH+linePathY;
+    lineLayer.width = 10;
+    lineLayer.right = self.tableView.width;
+    lineLayer.top = 0;
+//    lineLayer.backgroundColor = [UIColor redColor].CGColor;
+//    UIImage *stretchableImage = [[UIImage imageNamed:@"scale_text"] stretchableImageWithLeftCapWidth:0 topCapHeight:30];
+    
+    UIImage *stretchableImage = [[UIImage imageNamed:@"scale_text"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 0, 0, 0) resizingMode:UIImageResizingModeTile];
+    
+//    lineLayer.contents = self.imageView.layer.contents;//(__bridge id)stretchableImage.CGImage;
+    
     [self.tableView.layer addSublayer:lineLayer];
 }
 
@@ -124,6 +147,18 @@
         
     }
     return _tableView;
+}
+
+- (UIImageView *)imageView{
+    if (!_imageView) {
+        UIImage *stretchableImage = [[UIImage imageNamed:@"scale_text"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 0, 0, 0) resizingMode:UIImageResizingModeTile];
+        _imageView = [[UIImageView alloc] init];
+        _imageView.width = 27;
+        _imageView.height = self.height;
+        _imageView.centerX = self.width*0.5;
+        _imageView.image = stretchableImage;
+    }
+    return _imageView;
 }
 
 @end
@@ -221,6 +256,124 @@
 }
 
 - (void)setSize:(CGSize)size {
+    CGRect frame = self.frame;
+    frame.size = size;
+    self.frame = frame;
+}
+
+
+@end
+
+
+@implementation CALayer (ScrollAdd)
+
+- (CGFloat)left {
+    return self.frame.origin.x;
+}
+
+- (void)setLeft:(CGFloat)x {
+    CGRect frame = self.frame;
+    frame.origin.x = x;
+    self.frame = frame;
+}
+
+- (CGFloat)top {
+    return self.frame.origin.y;
+}
+
+- (void)setTop:(CGFloat)y {
+    CGRect frame = self.frame;
+    frame.origin.y = y;
+    self.frame = frame;
+}
+
+- (CGFloat)right {
+    return self.frame.origin.x + self.frame.size.width;
+}
+
+- (void)setRight:(CGFloat)right {
+    CGRect frame = self.frame;
+    frame.origin.x = right - frame.size.width;
+    self.frame = frame;
+}
+
+- (CGFloat)bottom {
+    return self.frame.origin.y + self.frame.size.height;
+}
+
+- (void)setBottom:(CGFloat)bottom {
+    CGRect frame = self.frame;
+    frame.origin.y = bottom - frame.size.height;
+    self.frame = frame;
+}
+
+- (CGFloat)width {
+    return self.frame.size.width;
+}
+
+- (void)setWidth:(CGFloat)width {
+    CGRect frame = self.frame;
+    frame.size.width = width;
+    self.frame = frame;
+}
+
+- (CGFloat)height {
+    return self.frame.size.height;
+}
+
+- (void)setHeight:(CGFloat)height {
+    CGRect frame = self.frame;
+    frame.size.height = height;
+    self.frame = frame;
+}
+
+- (CGPoint)center {
+    return CGPointMake(self.frame.origin.x + self.frame.size.width * 0.5,
+                       self.frame.origin.y + self.frame.size.height * 0.5);
+}
+
+- (void)setCenter:(CGPoint)center {
+    CGRect frame = self.frame;
+    frame.origin.x = center.x - frame.size.width * 0.5;
+    frame.origin.y = center.y - frame.size.height * 0.5;
+    self.frame = frame;
+}
+
+- (CGFloat)centerX {
+    return self.frame.origin.x + self.frame.size.width * 0.5;
+}
+
+- (void)setCenterX:(CGFloat)centerX {
+    CGRect frame = self.frame;
+    frame.origin.x = centerX - frame.size.width * 0.5;
+    self.frame = frame;
+}
+
+- (CGFloat)centerY {
+    return self.frame.origin.y + self.frame.size.height * 0.5;
+}
+
+- (void)setCenterY:(CGFloat)centerY {
+    CGRect frame = self.frame;
+    frame.origin.y = centerY - frame.size.height * 0.5;
+    self.frame = frame;
+}
+
+- (CGPoint)origin {
+    return self.frame.origin;
+}
+
+- (void)setOrigin:(CGPoint)origin {
+    CGRect frame = self.frame;
+    frame.origin = origin;
+    self.frame = frame;
+}
+
+- (CGSize)frameSize {
+    return self.frame.size;
+}
+
+- (void)setFrameSize:(CGSize)size {
     CGRect frame = self.frame;
     frame.size = size;
     self.frame = frame;
