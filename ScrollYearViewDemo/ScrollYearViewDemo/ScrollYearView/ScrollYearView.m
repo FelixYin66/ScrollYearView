@@ -52,9 +52,10 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
-        [self addSubview:self.tableView];
+//        [self addSubview:self.tableView];
         [self addSubview:self.imageView];
-        [self drawLine];
+        
+//        [self drawLine];
     }
     return self;
 }
@@ -83,52 +84,40 @@
 }
 
 
-- (void) drawLine{
+- (CALayer *) drawLine{
     
 //    UIImage *stretchableImage = (id)[UIImage imageNamed:@"scale_text"];
     CGColorRef color = [UIColor whiteColor].CGColor;
     CGFloat cornerRadius = 50;
     CGFloat lineWidth = 5;
-    CGFloat startX = 0;//self.tableView.width - lineWidth;
-    CGFloat lineH = (self.tableView.height - cornerRadius*2 - lineWidth*2)*0.5;
+    CGFloat startX = 0;
+    CGFloat width = self.width;
+    CGFloat height = self.height;
+    CGFloat lineH = (height - cornerRadius*2 - lineWidth*2)*0.5;
     
     CAShapeLayer *lineLayer = [CAShapeLayer layer];
     lineLayer.lineWidth = lineWidth;
     lineLayer.strokeColor = color;
-    lineLayer.fillColor = [UIColor clearColor].CGColor;
+    lineLayer.fillColor = color;
+    lineLayer.left = 100;
+    lineLayer.width = cornerRadius;
     
-    UIBezierPath *linePath = [UIBezierPath bezierPath];
-    linePath.lineCapStyle = kCGLineCapRound;
-    linePath.lineJoinStyle = kCGLineJoinRound;
-    [linePath moveToPoint:CGPointMake(startX, 0)];
-    [linePath addLineToPoint:CGPointMake(startX, lineH)];
     
-    UIBezierPath *halfCirclePath = [UIBezierPath bezierPathWithArcCenter:CGPointMake(startX+lineWidth*0.5, lineH+cornerRadius) radius:cornerRadius startAngle:M_PI*1.5 endAngle:M_PI*0.5 clockwise:NO];
-    [linePath appendPath:halfCirclePath];
     
-    UIBezierPath *linePath2 = [UIBezierPath bezierPath];
-    linePath2.lineCapStyle = kCGLineCapRound;
-    linePath2.lineJoinStyle = kCGLineJoinRound;
-    CGFloat linePathY = lineH+cornerRadius*2;
-    [linePath2 moveToPoint:CGPointMake(startX, linePathY)];
-    [linePath2 addLineToPoint:CGPointMake(startX, lineH+linePathY)];
-    [linePath appendPath:linePath2];
-    lineLayer.path = linePath.CGPath;
+//    UIImage *stretchableImage = [[UIImage imageNamed:@"scale_text"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 0, 0, 0) resizingMode:UIImageResizingModeTile];
     
-    lineLayer.height = lineH+linePathY;
-    lineLayer.width = 10;
-    lineLayer.right = self.tableView.width;
-    lineLayer.top = 0;
-//    lineLayer.backgroundColor = [UIColor redColor].CGColor;
-//    UIImage *stretchableImage = [[UIImage imageNamed:@"scale_text"] stretchableImageWithLeftCapWidth:0 topCapHeight:30];
+    UIBezierPath *path = [UIBezierPath bezierPath];
+    path.lineCapStyle = kCGLineCapRound;
+    path.lineJoinStyle = kCGLineJoinRound;
+    [path moveToPoint:CGPointMake(0, 0)];
+    [path addLineToPoint:CGPointMake(0, lineH)];
+    [path addQuadCurveToPoint:CGPointMake(0, lineH+cornerRadius*2) controlPoint:CGPointMake(-cornerRadius, height*0.5)];
+    [path addLineToPoint:CGPointMake(0, self.height)];
+    lineLayer.path = path.CGPath;
     
-    UIImage *stretchableImage = [[UIImage imageNamed:@"scale_text"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 0, 0, 0) resizingMode:UIImageResizingModeTile];
-    
-//    lineLayer.contents = self.imageView.layer.contents;//(__bridge id)stretchableImage.CGImage;
-    
-    [self.tableView.layer addSublayer:lineLayer];
+//    [self.layer addSublayer:lineLayer];
+    return lineLayer;
 }
-
 
 //    MARK: Lazy Loading
 
@@ -141,22 +130,24 @@
         _tableView.delegate = self;
         _tableView.backgroundColor = [UIColor grayColor];
         
-//        UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 50, 50)];
-//        view.backgroundColor = [UIColor redColor];
-//        _tableView.maskView = view;
-        
     }
     return _tableView;
 }
 
 - (UIImageView *)imageView{
     if (!_imageView) {
+        //UIImageResizingModeTile 按照图片大小平铺
         UIImage *stretchableImage = [[UIImage imageNamed:@"scale_text"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 0, 0, 0) resizingMode:UIImageResizingModeTile];
         _imageView = [[UIImageView alloc] init];
-        _imageView.width = 27;
+        _imageView.width = 54;
         _imageView.height = self.height;
         _imageView.centerX = self.width*0.5;
         _imageView.image = stretchableImage;
+        CALayer *layer = [self drawLine];
+        layer.right = 80;
+        layer.top = 0;
+        [_imageView.layer addSublayer:layer];
+//        _imageView.layer.mask = layer;
     }
     return _imageView;
 }
