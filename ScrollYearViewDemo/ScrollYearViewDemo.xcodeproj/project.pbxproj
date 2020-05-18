@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		865E522E24728128004F65FE /* ScrollYearView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8674519A246BC6A8004A7602 /* ScrollYearView.m */; };
+		865E52322472815D004F65FE /* ScrollYearRuleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 865E52312472815D004F65FE /* ScrollYearRuleView.m */; };
+		865E523624728182004F65FE /* ScrollYearCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 865E523524728182004F65FE /* ScrollYearCollectionViewCell.m */; };
+		865E523A247281AD004F65FE /* ScrollYearRuleCollectionViewLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 865E5239247281AD004F65FE /* ScrollYearRuleCollectionViewLayout.m */; };
+		865E523E2472828F004F65FE /* UIView+Add.m in Sources */ = {isa = PBXBuildFile; fileRef = 865E523D2472828F004F65FE /* UIView+Add.m */; };
+		865E52412472829D004F65FE /* CALayer+Add.m in Sources */ = {isa = PBXBuildFile; fileRef = 865E52402472829D004F65FE /* CALayer+Add.m */; };
+		865E524424728655004F65FE /* ScrollYearRuleViewConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 865E524324728655004F65FE /* ScrollYearRuleViewConfig.m */; };
 		86745181246BC65E004A7602 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 86745180246BC65E004A7602 /* AppDelegate.m */; };
 		86745184246BC65E004A7602 /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 86745183246BC65E004A7602 /* SceneDelegate.m */; };
 		86745187246BC65E004A7602 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 86745186246BC65E004A7602 /* ViewController.m */; };
@@ -14,10 +21,21 @@
 		8674518C246BC660004A7602 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8674518B246BC660004A7602 /* Assets.xcassets */; };
 		8674518F246BC660004A7602 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8674518D246BC660004A7602 /* LaunchScreen.storyboard */; };
 		86745192246BC660004A7602 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 86745191246BC660004A7602 /* main.m */; };
-		8674519B246BC6A8004A7602 /* ScrollYearView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8674519A246BC6A8004A7602 /* ScrollYearView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		865E52302472815D004F65FE /* ScrollYearRuleView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ScrollYearRuleView.h; sourceTree = "<group>"; };
+		865E52312472815D004F65FE /* ScrollYearRuleView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ScrollYearRuleView.m; sourceTree = "<group>"; };
+		865E523424728182004F65FE /* ScrollYearCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ScrollYearCollectionViewCell.h; sourceTree = "<group>"; };
+		865E523524728182004F65FE /* ScrollYearCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ScrollYearCollectionViewCell.m; sourceTree = "<group>"; };
+		865E5238247281AD004F65FE /* ScrollYearRuleCollectionViewLayout.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ScrollYearRuleCollectionViewLayout.h; sourceTree = "<group>"; };
+		865E5239247281AD004F65FE /* ScrollYearRuleCollectionViewLayout.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ScrollYearRuleCollectionViewLayout.m; sourceTree = "<group>"; };
+		865E523C2472828F004F65FE /* UIView+Add.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+Add.h"; sourceTree = "<group>"; };
+		865E523D2472828F004F65FE /* UIView+Add.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIView+Add.m"; sourceTree = "<group>"; };
+		865E523F2472829D004F65FE /* CALayer+Add.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CALayer+Add.h"; sourceTree = "<group>"; };
+		865E52402472829D004F65FE /* CALayer+Add.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "CALayer+Add.m"; sourceTree = "<group>"; };
+		865E524224728655004F65FE /* ScrollYearRuleViewConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ScrollYearRuleViewConfig.h; sourceTree = "<group>"; };
+		865E524324728655004F65FE /* ScrollYearRuleViewConfig.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ScrollYearRuleViewConfig.m; sourceTree = "<group>"; };
 		8674517C246BC65E004A7602 /* ScrollYearViewDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ScrollYearViewDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8674517F246BC65E004A7602 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		86745180246BC65E004A7602 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -45,6 +63,48 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		865E522F2472812C004F65FE /* CustomScrollYearView */ = {
+			isa = PBXGroup;
+			children = (
+				865E523724728186004F65FE /* Layout */,
+				865E523324728163004F65FE /* Subviews */,
+				865E52302472815D004F65FE /* ScrollYearRuleView.h */,
+				865E52312472815D004F65FE /* ScrollYearRuleView.m */,
+				865E524224728655004F65FE /* ScrollYearRuleViewConfig.h */,
+				865E524324728655004F65FE /* ScrollYearRuleViewConfig.m */,
+			);
+			path = CustomScrollYearView;
+			sourceTree = "<group>";
+		};
+		865E523324728163004F65FE /* Subviews */ = {
+			isa = PBXGroup;
+			children = (
+				865E523424728182004F65FE /* ScrollYearCollectionViewCell.h */,
+				865E523524728182004F65FE /* ScrollYearCollectionViewCell.m */,
+			);
+			path = Subviews;
+			sourceTree = "<group>";
+		};
+		865E523724728186004F65FE /* Layout */ = {
+			isa = PBXGroup;
+			children = (
+				865E5238247281AD004F65FE /* ScrollYearRuleCollectionViewLayout.h */,
+				865E5239247281AD004F65FE /* ScrollYearRuleCollectionViewLayout.m */,
+			);
+			path = Layout;
+			sourceTree = "<group>";
+		};
+		865E523B2472827A004F65FE /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				865E523C2472828F004F65FE /* UIView+Add.h */,
+				865E523D2472828F004F65FE /* UIView+Add.m */,
+				865E523F2472829D004F65FE /* CALayer+Add.h */,
+				865E52402472829D004F65FE /* CALayer+Add.m */,
+			);
+			path = Category;
+			sourceTree = "<group>";
+		};
 		86745173246BC65E004A7602 = {
 			isa = PBXGroup;
 			children = (
@@ -64,6 +124,8 @@
 		8674517E246BC65E004A7602 /* ScrollYearViewDemo */ = {
 			isa = PBXGroup;
 			children = (
+				865E523B2472827A004F65FE /* Category */,
+				865E522F2472812C004F65FE /* CustomScrollYearView */,
 				86745198246BC692004A7602 /* ScrollYearView */,
 				8674517F246BC65E004A7602 /* AppDelegate.h */,
 				86745180246BC65E004A7602 /* AppDelegate.m */,
@@ -159,11 +221,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				865E522E24728128004F65FE /* ScrollYearView.m in Sources */,
+				865E52412472829D004F65FE /* CALayer+Add.m in Sources */,
 				86745187246BC65E004A7602 /* ViewController.m in Sources */,
 				86745181246BC65E004A7602 /* AppDelegate.m in Sources */,
 				86745192246BC660004A7602 /* main.m in Sources */,
+				865E523E2472828F004F65FE /* UIView+Add.m in Sources */,
+				865E523A247281AD004F65FE /* ScrollYearRuleCollectionViewLayout.m in Sources */,
+				865E524424728655004F65FE /* ScrollYearRuleViewConfig.m in Sources */,
+				865E523624728182004F65FE /* ScrollYearCollectionViewCell.m in Sources */,
+				865E52322472815D004F65FE /* ScrollYearRuleView.m in Sources */,
 				86745184246BC65E004A7602 /* SceneDelegate.m in Sources */,
-				8674519B246BC6A8004A7602 /* ScrollYearView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

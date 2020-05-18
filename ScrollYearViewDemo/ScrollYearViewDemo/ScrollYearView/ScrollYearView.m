@@ -139,7 +139,7 @@
         //UIImageResizingModeTile 按照图片大小平铺
         UIImage *stretchableImage = [[UIImage imageNamed:@"scale_text"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 0, 0, 0) resizingMode:UIImageResizingModeTile];
         _imageView = [[UIImageView alloc] init];
-        _imageView.width = 54;
+        _imageView.width = 27;
         _imageView.height = self.height;
         _imageView.centerX = self.width*0.5;
         _imageView.image = stretchableImage;
