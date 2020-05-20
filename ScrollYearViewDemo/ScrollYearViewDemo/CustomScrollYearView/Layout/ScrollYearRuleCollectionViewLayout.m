@@ -27,11 +27,24 @@
     CGSize size = CGSizeZero;
     CGFloat count = [self.collectionView numberOfItemsInSection:0];
     CGFloat width = self.collectionView.width;
-    CGFloat height = count;
-    
+    CGFloat height = count*self.itemSize.height+count*self.config.scaleSpace;
+    size = CGSizeMake(width, height);
     return size;
 }
 
+
+- (UICollectionViewLayoutAttributes *)layoutAttributesForItemAtIndexPath:(NSIndexPath *)indexPath{
+    UICollectionViewLayoutAttributes *attribute = [UICollectionViewLayoutAttributes layoutAttributesForCellWithIndexPath:indexPath];
+    CGFloat x = 0;
+    CGFloat y = indexPath.item*(self.itemSize.height+self.config.scaleSpace);
+    attribute.frame = CGRectMake(x, y, self.itemSize.width, self.itemSize.height);
+    return attribute;
+}
+
+
+- (NSArray<UICollectionViewLayoutAttributes *> *)layoutAttributesForElementsInRect:(CGRect)rect{
+    return [self attributesInRect:rect];
+}
 
 
 - (NSArray *)attributesInRect:(CGRect)rect {

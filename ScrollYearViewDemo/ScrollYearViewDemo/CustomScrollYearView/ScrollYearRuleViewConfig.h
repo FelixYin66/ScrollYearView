@@ -19,6 +19,12 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic,assign) CGFloat longScaleSize;
 @property(nonatomic,assign) CGFloat scaleWeigth;
 @property(nonatomic,assign) CGFloat scaleSpace;
+@property(nonatomic,assign) NSInteger perScaleCount;
+@property(nonatomic,strong) UIColor *textColor;
+@property(nonatomic,assign) CGFloat textSize;
+@property(nonatomic,assign) CGFloat textMaxSize;
+@property(nonatomic,strong) UIFont  *textFont;
+@property(nonatomic,strong) UIFont  *textMaxFont;
 
 @end
 

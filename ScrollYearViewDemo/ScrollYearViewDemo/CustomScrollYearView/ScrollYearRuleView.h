@@ -7,10 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ScrollYearRuleViewConfig.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface ScrollYearRuleView : UIView
+
+@property(nonatomic,strong) ScrollYearRuleViewConfig *config;
 
 @end
 

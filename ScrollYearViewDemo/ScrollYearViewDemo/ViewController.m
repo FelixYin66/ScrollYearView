@@ -8,10 +8,12 @@
 
 #import "ViewController.h"
 #import "ScrollYearView.h"
+#import "ScrollYearRuleView.h"
 
 @interface ViewController ()
 
 @property(nonatomic,strong) ScrollYearView *yearView;
+@property(nonatomic,strong) ScrollYearRuleView *yearView2;
 
 @end
 
@@ -24,7 +26,8 @@
 
 - (void)viewDidLayoutSubviews{
     [super viewDidLayoutSubviews];
-    [self.view addSubview:self.yearView];
+//    [self.view addSubview:self.yearView];
+    [self.view addSubview:self.yearView2];
 }
 
 
@@ -37,6 +40,14 @@
         _yearView = [[ScrollYearView alloc] initWithFrame:CGRectMake(0, 0, width, height)];
     }
     return _yearView;
+}
+
+- (ScrollYearRuleView *)yearView2{
+    if (!_yearView2) {
+        _yearView2 = [[ScrollYearRuleView alloc] initWithFrame:CGRectMake(84, 84, 200, 600)];
+        _yearView2.backgroundColor = [UIColor blueColor];
+    }
+    return _yearView2;
 }
 
 

@@ -13,8 +13,15 @@ NS_ASSUME_NONNULL_BEGIN
 @class ScrollYearRuleViewConfig;
 @interface ScrollYearCollectionViewCell : UICollectionViewCell
 
+@property(nonatomic,weak) UICollectionView *collectionView;
 @property(nonatomic,weak) ScrollYearRuleViewConfig *config;
 @property(nonatomic,assign) NSInteger index;
+
+- (void) makeCellUnSelected;
+
+- (void) makeCellSelected;
+
+- (void) updateIndicator:(NSInteger) index;
 
 @end
 
