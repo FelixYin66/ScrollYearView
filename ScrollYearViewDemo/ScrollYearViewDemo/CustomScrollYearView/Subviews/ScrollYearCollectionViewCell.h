@@ -21,7 +21,13 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (void) makeCellSelected;
 
-- (void) updateIndicator:(NSInteger) index;
+//- (void) updateCircleIndicator:(NSInteger) index;
+//
+//- (void) updateNormalIndicator:(NSInteger) index;
+
+- (void) updateCircleIndicator:(CGFloat) offset;
+
+- (void) updateNormalIndicator;
 
 @end
 

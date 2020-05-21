@@ -56,17 +56,10 @@
         }
     }
     self.selectIndex = index;
-    
-    NSLog(@"count %zd",[self.collectionView.indexPathsForVisibleItems count]);
-    
-    
-//    for (int i = 0 ; i < self.collectionView.indexPathsForVisibleItems.count; i++) {
-//        NSIndexPath *obj = self.collectionView.indexPathsForVisibleItems[i];
-//        NSLog(@"item == %@",@(obj.item));
-//    }
-//    [self.collectionView.indexPathsForVisibleItems enumerateObjectsUsingBlock:^(NSIndexPath * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-//        NSLog(@"index == %@",@(obj.item));
-//    }];
+//    NSLog(@"222");
+}
+
+- (void) updateCells{
     NSArray *array = [self.collectionView.indexPathsForVisibleItems sortedArrayUsingComparator:^NSComparisonResult(NSIndexPath  *obj1, NSIndexPath *obj2) {
         if (obj1.item > obj2.item) {
             return NSOrderedAscending;
@@ -82,14 +75,30 @@
         }else{
             location = array.count/2 + 1;
         }
-        array = [array subarrayWithRange:NSMakeRange(location, self.config.perScaleCount*2 - 1)];
-        
-        [array enumerateObjectsUsingBlock:^(NSIndexPath * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-            ScrollYearCollectionViewCell *cell = (ScrollYearCollectionViewCell *)[self.collectionView cellForItemAtIndexPath:obj];
-            [cell updateIndicator:idx];
+        NSInteger length = self.config.perScaleCount*2 - 1;
+        NSArray *midleArray = [array subarrayWithRange:NSMakeRange(location, length)];
+        [midleArray enumerateObjectsUsingBlock:^(NSIndexPath * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+            NSInteger showIndex = (obj.item/self.config.perScaleCount + self.config.min);
+            NSLog(@"circle == %@",@(showIndex));
+//            ScrollYearCollectionViewCell *cell = (ScrollYearCollectionViewCell *)[self.collectionView cellForItemAtIndexPath:obj];
+//            [cell updateCircleIndicator:idx];
         }];
         
-        //
+        NSArray *startArray = [array subarrayWithRange:NSMakeRange(0, location)];
+        [startArray enumerateObjectsUsingBlock:^(NSIndexPath   *obj, NSUInteger idx, BOOL * _Nonnull stop) {
+            NSInteger showIndex = (obj.item/self.config.perScaleCount + self.config.min);
+            NSLog(@"normal == %@",@(showIndex));
+//            ScrollYearCollectionViewCell *cell = (ScrollYearCollectionViewCell *)[self.collectionView cellForItemAtIndexPath:obj];
+//            [cell updateNormalIndicator:idx];
+        }];
+        
+        NSArray *endArray = [array subarrayWithRange:NSMakeRange(length, array.count-midleArray.count-startArray.count)];
+        [endArray enumerateObjectsUsingBlock:^(NSIndexPath   *obj, NSUInteger idx, BOOL * _Nonnull stop) {
+            NSInteger showIndex = (obj.item/self.config.perScaleCount + self.config.min);
+            NSLog(@"normal == %@",@(showIndex));
+//            ScrollYearCollectionViewCell *cell = (ScrollYearCollectionViewCell *)[self.collectionView cellForItemAtIndexPath:obj];
+//            [cell updateNormalIndicator:idx];
+        }];
     }
 }
 
@@ -143,6 +152,11 @@
     cell.collectionView = self.collectionView;
     [cell setNeedsLayout];
     return cell;
+}
+
+
+- (void)collectionView:(UICollectionView *)collectionView didEndDisplayingCell:(UICollectionViewCell *)cell forItemAtIndexPath:(NSIndexPath *)indexPath{
+//    [self updateCells];
 }
 
 //    MARK: InitialData
