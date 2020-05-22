@@ -27,6 +27,9 @@
         _textMaxSize = 25;
         _textFont = [UIFont systemFontOfSize:_textSize];
         _textMaxFont = [UIFont systemFontOfSize:_textMaxSize];
+        _circleLineWeight = 5;
+        CGFloat lineLength = _perScaleCount*(_scaleWeigth+_scaleSpace);
+        _cornerRadius = lineLength*2/M_PI;
     }
     return self;
 }

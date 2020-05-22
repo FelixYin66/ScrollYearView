@@ -29,7 +29,8 @@
     self = [super initWithFrame:frame];
     if (self) {
         [self addSubview:self.collectionView];
-        [self.layer addSublayer:self.indicatorLayer];
+//        [self.layer addSublayer:[self drawLine]];
+//        [self.layer addSublayer:self.indicatorLayer];
     }
     return self;
 }
@@ -56,50 +57,55 @@
         }
     }
     self.selectIndex = index;
-//    NSLog(@"222");
+//    [self circle];
 }
 
-- (void) updateCells{
-    NSArray *array = [self.collectionView.indexPathsForVisibleItems sortedArrayUsingComparator:^NSComparisonResult(NSIndexPath  *obj1, NSIndexPath *obj2) {
-        if (obj1.item > obj2.item) {
-            return NSOrderedAscending;
-        }
-        return NSOrderedDescending;
-    }];
-    
-    if (array.count > 0) {
-        NSInteger count = array.count%2;
-        NSInteger location = 0;
-        if (count == 0) {
-            location = array.count/2;
-        }else{
-            location = array.count/2 + 1;
-        }
-        NSInteger length = self.config.perScaleCount*2 - 1;
-        NSArray *midleArray = [array subarrayWithRange:NSMakeRange(location, length)];
-        [midleArray enumerateObjectsUsingBlock:^(NSIndexPath * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-            NSInteger showIndex = (obj.item/self.config.perScaleCount + self.config.min);
-            NSLog(@"circle == %@",@(showIndex));
-//            ScrollYearCollectionViewCell *cell = (ScrollYearCollectionViewCell *)[self.collectionView cellForItemAtIndexPath:obj];
-//            [cell updateCircleIndicator:idx];
-        }];
-        
-        NSArray *startArray = [array subarrayWithRange:NSMakeRange(0, location)];
-        [startArray enumerateObjectsUsingBlock:^(NSIndexPath   *obj, NSUInteger idx, BOOL * _Nonnull stop) {
-            NSInteger showIndex = (obj.item/self.config.perScaleCount + self.config.min);
-            NSLog(@"normal == %@",@(showIndex));
-//            ScrollYearCollectionViewCell *cell = (ScrollYearCollectionViewCell *)[self.collectionView cellForItemAtIndexPath:obj];
-//            [cell updateNormalIndicator:idx];
-        }];
-        
-        NSArray *endArray = [array subarrayWithRange:NSMakeRange(length, array.count-midleArray.count-startArray.count)];
-        [endArray enumerateObjectsUsingBlock:^(NSIndexPath   *obj, NSUInteger idx, BOOL * _Nonnull stop) {
-            NSInteger showIndex = (obj.item/self.config.perScaleCount + self.config.min);
-            NSLog(@"normal == %@",@(showIndex));
-//            ScrollYearCollectionViewCell *cell = (ScrollYearCollectionViewCell *)[self.collectionView cellForItemAtIndexPath:obj];
-//            [cell updateNormalIndicator:idx];
-        }];
-    }
+
+- (void) circle{
+    dispatch_async(dispatch_get_main_queue(), ^{
+            NSIndexPath *indexPath = [self.collectionView indexPathForItemAtPoint:CGPointMake(0, self.collectionView.height*0.5+self.collectionView.contentOffset.y)];
+            if (indexPath!=nil) {
+                NSInteger middle = indexPath.item;
+                NSInteger min = middle - self.config.perScaleCount;
+                NSInteger max = middle + self.config.perScaleCount;
+                NSInteger total = [self.collectionView numberOfItemsInSection:0];
+                NSArray *cells = self.collectionView.visibleCells;
+                ScrollYearCollectionViewCell *cell = (ScrollYearCollectionViewCell *)[self.collectionView cellForItemAtIndexPath:indexPath];
+                [cell updateCircleIndicator:self.config.perScaleCount];
+                NSMutableArray *minusArray = [[NSMutableArray alloc] initWithCapacity:cells.count];
+                [minusArray addObject:cell];
+                
+                if (min >= 0) {
+                    int count = 0;
+                    for (NSInteger i = min; i < middle ; i++) {
+                        NSIndexPath *index = [NSIndexPath indexPathForItem:i inSection:0];
+                        ScrollYearCollectionViewCell *cel = (ScrollYearCollectionViewCell *)[self.collectionView cellForItemAtIndexPath:index];
+                           [cel updateCircleIndicator:count];
+                        [minusArray addObject:cel];
+                        count++;
+                    }
+//                    NSLog(@"min == %@",@(minusArray.count));
+                }
+                
+                if (total >= max) {
+                    int count = 0;
+                    for (NSInteger i = max; i >= middle ; i--) {
+                        NSIndexPath *index = [NSIndexPath indexPathForItem:i inSection:0];
+                        ScrollYearCollectionViewCell *cel = (ScrollYearCollectionViewCell *)[self.collectionView cellForItemAtIndexPath:index];
+                           [cel updateCircleIndicator:count];
+                        [minusArray addObject:cel];
+                        count++;
+                    }
+//                    NSLog(@"max == %@",@(count));
+                }
+                
+                NSPredicate *preDicate = [NSPredicate predicateWithFormat:@"NOT SELF IN %@",minusArray];
+                NSArray *fArray = [cells filteredArrayUsingPredicate:preDicate];
+                [fArray enumerateObjectsUsingBlock:^(ScrollYearCollectionViewCell *obj, NSUInteger idx, BOOL * _Nonnull stop) {
+                    [obj updateNormalIndicator];
+                }];
+            }
+    });
 }
 
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView{
@@ -154,11 +160,6 @@
     return cell;
 }
 
-
-- (void)collectionView:(UICollectionView *)collectionView didEndDisplayingCell:(UICollectionViewCell *)cell forItemAtIndexPath:(NSIndexPath *)indexPath{
-//    [self updateCells];
-}
-
 //    MARK: InitialData
 
 - (void)initialData {
@@ -184,6 +185,33 @@
         CGFloat offY = - (self.config.scaleWeigth*0.5 + self.collectionView.contentInset.top);
         self.collectionView.contentOffset = CGPointMake(0, offY);
     }
+}
+
+- (CALayer *) drawLine{
+    
+    CGColorRef color = self.config.scaleColor.CGColor;
+    CGFloat cornerRadius = self.config.cornerRadius;
+    CGFloat lineWidth = self.config.circleLineWeight;
+    CGFloat height = self.height;
+    CGFloat lineH = (height - cornerRadius*2 - lineWidth*2)*0.5;
+    
+    CAShapeLayer *lineLayer = [CAShapeLayer layer];
+    lineLayer.lineWidth = lineWidth;
+    lineLayer.strokeColor = color;
+    lineLayer.fillColor = [UIColor clearColor].CGColor;
+    lineLayer.left = self.width*0.5;
+    lineLayer.width = cornerRadius;
+    
+    
+    UIBezierPath *path = [UIBezierPath bezierPath];
+    path.lineCapStyle = kCGLineCapRound;
+    path.lineJoinStyle = kCGLineJoinRound;
+    [path moveToPoint:CGPointMake(0, 0)];
+    [path addLineToPoint:CGPointMake(0, lineH)];
+    [path addQuadCurveToPoint:CGPointMake(0, lineH+cornerRadius*2) controlPoint:CGPointMake(-cornerRadius, height*0.5)];
+    [path addLineToPoint:CGPointMake(0, self.height)];
+    lineLayer.path = path.CGPath;
+    return lineLayer;
 }
 
 

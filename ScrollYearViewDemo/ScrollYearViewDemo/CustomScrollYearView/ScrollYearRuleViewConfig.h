@@ -25,6 +25,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic,assign) CGFloat textMaxSize;
 @property(nonatomic,strong) UIFont  *textFont;
 @property(nonatomic,strong) UIFont  *textMaxFont;
+@property(nonatomic,assign) CGFloat cornerRadius;
+@property(nonatomic,assign) CGFloat circleLineWeight;
 
 @end
 
