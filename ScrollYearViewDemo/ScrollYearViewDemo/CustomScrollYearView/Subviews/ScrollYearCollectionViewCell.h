@@ -16,6 +16,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic,weak) UICollectionView *collectionView;
 @property(nonatomic,weak) ScrollYearRuleViewConfig *config;
 @property(nonatomic,assign) NSInteger index;
+@property(nonatomic,assign) NSInteger item;
 
 - (void) makeCellUnSelected;
 

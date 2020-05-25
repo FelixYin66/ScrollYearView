@@ -57,6 +57,8 @@
         }
     }
     self.selectIndex = index;
+    
+    //绘制弧线 由于效果不佳，暂且不用
 //    [self circle];
 }
 
@@ -147,13 +149,15 @@
 //    MARK: DataSource
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return self.indexArray.count;
+//    return self.indexArray.count;
+    return self.collectionViewLayout.actualLength;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     ScrollYearCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"cell" forIndexPath:indexPath];
     NSInteger index = [self.indexArray[indexPath.row] integerValue];
     cell.index = index;
+    cell.item = indexPath.item;
     cell.config = self.config;
     cell.collectionView = self.collectionView;
     [cell setNeedsLayout];
@@ -168,19 +172,50 @@
     } else {
         [self.indexArray removeAllObjects];
         NSInteger items = self.config.max - self.config.min;
-        NSInteger totalCount = 0;
+        NSInteger perSectionTotalCount = 0;
         NSInteger perScaleCount = self.config.perScaleCount;
-        if (perScaleCount > 0) {
+        //重复5组数据
+        NSInteger section = self.config.sectionCount;
+        if (section > 0) {
             //如果是一位小数类型，则数据扩大perScaleCount倍
-            totalCount = items * perScaleCount + 1;
+            perSectionTotalCount = items * perScaleCount + 1;
         } else {
-            totalCount = items + 1;
+            perSectionTotalCount = items + 1;
         }
         
+        NSInteger totalCount = section*perSectionTotalCount;
         self.collectionViewLayout.actualLength = totalCount;
+        self.config.perSectionTotalCount = perSectionTotalCount;
+        
+        NSInteger lastIndex = 0;
         for (NSInteger i=0; i<totalCount; i++) {
-            [self.indexArray addObject:@(i%totalCount)];
+            lastIndex++;
+            NSInteger index = i%perSectionTotalCount;
+            NSInteger sectionIndex = i/perSectionTotalCount;
+            
+//            if (sectionIndex > 0 && sectionIndex != section && index == 0) {
+//                continue;
+//            }else{
+//                [self.indexArray addObject:@(index)];
+////                if (section > 0 && index==perSectionTotalCount-1) {
+////                    [self.indexArray addObject:@(index+1)];
+////                }
+//            }
+            
+//            if (sectionIndex > 0 && sectionIndex != section-1) {
+//
+//            }else{
+//                [self.indexArray addObject:@(index)];
+//            }
+            
+            [self.indexArray addObject:@(index)];
         }
+        
+//        for (NSInteger i = lastIndex; i < (self.config.perScaleCount+lastIndex); i++) {
+//            NSInteger index = i%perSectionTotalCount;
+//            [self.indexArray addObject:@(index)];
+//        }
+        
         //默认没有指定选中值时
         CGFloat offY = - (self.config.scaleWeigth*0.5 + self.collectionView.contentInset.top);
         self.collectionView.contentOffset = CGPointMake(0, offY);
@@ -225,8 +260,7 @@
         _collectionView.showsVerticalScrollIndicator = NO;
         _collectionView.showsHorizontalScrollIndicator = NO;
         _collectionView.bounces = NO;
-//        CGFloat top = self.height*0.5 + self.config.scaleWeigth*0.5;
-//        CGFloat bottom = self.height*0.5 + self.config.scaleWeigth*0.5;
+        _collectionView.decelerationRate = 0.0;
         CGFloat top = self.height*0.5;
         CGFloat bottom = self.height*0.5;
         UIEdgeInsets inset = UIEdgeInsetsMake(top,0,bottom,0);

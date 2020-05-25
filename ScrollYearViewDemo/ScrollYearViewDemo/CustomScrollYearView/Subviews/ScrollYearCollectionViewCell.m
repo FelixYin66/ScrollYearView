@@ -32,16 +32,39 @@
     [super layoutSubviews];
     //重新布局
 //    NSLog(@"left ==%f top: == %f",self.left,self.top);
+//    CGFloat right = self.collectionView.width*0.5 - self.config.scaleSpace;
+    NSInteger section = self.item/self.config.perSectionTotalCount;
+//    BOOL isLength = self.index%(self.config.perScaleCount) == 0;
+    NSInteger index = self.item;//section > 0 ? (self.index+1) : self.index;
+//    if (section > 0 && (section+1) < self.config.sectionCount) {
+//        index = self.index == 0 ? (self.index+1) : 0;
+//    }
+    [self scale:index];
+}
+
+- (NSInteger) showYear:(NSInteger) index{
+    NSInteger section = self.item/self.config.perSectionTotalCount;
+    NSInteger showYearNum = (self.index/self.config.perScaleCount + self.config.min);
+    NSInteger showIndex = section > 0 ? (showYearNum - 1) : showYearNum;
+    
+    return showIndex;
+}
+
+- (void) scale:(NSInteger) index{
     CGFloat right = self.collectionView.width*0.5 - self.config.scaleSpace;
-    if(self.index%(self.config.perScaleCount) == 0){
+    BOOL isLength = index%(self.config.perScaleCount) == 0;
+    NSInteger section = self.item/self.config.perSectionTotalCount;
+    if(isLength){
         self.scaleLayer.size = CGSizeMake(self.config.longScaleSize, self.config.scaleWeigth);
         self.scaleLayer.right = right;
         self.scaleLayer.top = 0;
         self.scaleLayer.backgroundColor = self.config.scaleColor.CGColor;
         self.scaleLayer.cornerRadius = self.config.scaleWeigth*0.5;
         
-        NSInteger showIndex = (self.index/self.config.perScaleCount + self.config.min);
+        NSInteger showYearNum = self.item/self.config.perScaleCount; //(self.index/self.config.perScaleCount + self.config.min);
+        NSInteger showIndex = showYearNum;//section > 0 ? (showYearNum - 1) : showYearNum;
         NSString *text = [@"" stringByAppendingFormat:@"%zd",showIndex];
+        NSLog(@"Section == %zd Text == %@",section,text);
         CGSize size = [text boundingRectWithSize:CGSizeMake(self.width, CGFLOAT_MAX) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:self.config.textFont} context:nil].size;
         self.textLayer.size = size;
         self.textLayer.right = self.width - 30;
@@ -60,6 +83,7 @@
 }
 
 - (void)makeCellSelected{
+    return;
     NSInteger showIndex = (self.index/self.config.perScaleCount + self.config.min);
     NSString *text = [@"" stringByAppendingFormat:@"%zd",showIndex];
     CGSize size = [text boundingRectWithSize:CGSizeMake(self.width, CGFLOAT_MAX) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:self.config.textMaxFont} context:nil].size;
@@ -71,6 +95,7 @@
 }
 
 - (void)makeCellUnSelected{
+    return;
     if(self.index%(self.config.perScaleCount) == 0){
         NSInteger showIndex = (self.index/self.config.perScaleCount + self.config.min);
         NSString *text = [@"" stringByAppendingFormat:@"%zd",showIndex];

@@ -20,6 +20,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic,assign) CGFloat scaleWeigth;
 @property(nonatomic,assign) CGFloat scaleSpace;
 @property(nonatomic,assign) NSInteger perScaleCount;
+@property(nonatomic,assign) NSInteger perSectionTotalCount;
+@property(nonatomic,assign) NSInteger sectionCount;
 @property(nonatomic,strong) UIColor *textColor;
 @property(nonatomic,assign) CGFloat textSize;
 @property(nonatomic,assign) CGFloat textMaxSize;
