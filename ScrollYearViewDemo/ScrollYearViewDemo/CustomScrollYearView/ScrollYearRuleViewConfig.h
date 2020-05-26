@@ -15,6 +15,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic,assign) NSInteger min;
 @property(nonatomic,assign) NSInteger max;
 @property(nonatomic,strong) UIColor *scaleColor;
+@property(nonatomic,strong) UIColor *scaleBgColor;
 @property(nonatomic,assign) CGFloat shortScaleSize;
 @property(nonatomic,assign) CGFloat longScaleSize;
 @property(nonatomic,assign) CGFloat scaleWeigth;
@@ -29,6 +30,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic,strong) UIFont  *textMaxFont;
 @property(nonatomic,assign) CGFloat cornerRadius;
 @property(nonatomic,assign) CGFloat circleLineWeight;
+@property(nonatomic,assign) NSInteger defaultSelectedYear;
 
 @end
 

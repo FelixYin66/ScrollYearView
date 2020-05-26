@@ -11,7 +11,7 @@
 #import "ScrollYearRuleView.h"
 #import "UIView+Add.h"
 
-@interface ViewController ()
+@interface ViewController ()<ScrollYearRuleViewDelegate>
 
 @property(nonatomic,strong) ScrollYearView *yearView;
 @property(nonatomic,strong) ScrollYearRuleView *yearView2;
@@ -40,7 +40,17 @@
 }
 
 
+
+
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
+//    [self testConverCoordinate];
+    self.yearView2.config.min = 1900;
+    self.yearView2.config.max = 2030;
+    [self.yearView2 refreshData];
+}
+
+
+- (void) testConverCoordinate{
     //坐标转换
     /*
      以view1作为参考点  转换view2,view3的坐标(前提view2,view3的参考点时self.view 所以是调用self.view convert进行转化)
@@ -66,6 +76,12 @@
     NSLog(@"point2 == %@ point3 == %@",NSStringFromCGPoint(point2),NSStringFromCGPoint(point3));
 }
 
+//    MARK: ScrollYearViewDelegate
+
+- (void)scrollYearRuleView:(ScrollYearRuleView *)view selectedYear:(NSString *)year selectedIndex:(NSInteger)index{
+    NSLog(@"Year == %@ Index == %zd",year,index);
+}
+
 
 //    MARK: Lazy Loading
 
@@ -82,6 +98,7 @@
     if (!_yearView2) {
         _yearView2 = [[ScrollYearRuleView alloc] initWithFrame:CGRectMake(84, 84, 200, 600)];
         _yearView2.backgroundColor = [UIColor blueColor];
+        _yearView2.delegate = self;
     }
     return _yearView2;
 }

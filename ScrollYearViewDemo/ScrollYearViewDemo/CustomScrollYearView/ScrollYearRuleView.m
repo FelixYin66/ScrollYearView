@@ -16,9 +16,12 @@
 
 @property(nonatomic,strong) UICollectionView *collectionView;
 @property(nonatomic,strong) ScrollYearRuleCollectionViewLayout *collectionViewLayout;
-@property(nonatomic,strong) NSMutableArray *indexArray;
-@property(nonatomic,strong) CALayer *indicatorLayer;
+//@property(nonatomic,strong) CALayer *indicatorLayer;
+@property(nonatomic,strong) CAGradientLayer *topGradientLayer;
+@property(nonatomic,strong) CALayer *lineIndicatorLayer;
+@property(nonatomic,strong) CAGradientLayer *bottomGradientLayer;
 @property(nonatomic,assign) NSInteger selectIndex;
+@property(nonatomic,assign) BOOL isSetup;
 
 @end
 
@@ -29,10 +32,18 @@
     self = [super initWithFrame:frame];
     if (self) {
         [self addSubview:self.collectionView];
+        [self.layer addSublayer:self.lineIndicatorLayer];
+        [self.layer addSublayer:self.topGradientLayer];
+        [self.layer addSublayer:self.bottomGradientLayer];
 //        [self.layer addSublayer:[self drawLine]];
 //        [self.layer addSublayer:self.indicatorLayer];
     }
     return self;
+}
+
+- (void)refreshData{
+    [self initialData];
+    [_collectionView reloadData];
 }
 
 //设置选中Cell
@@ -45,8 +56,7 @@
 //    MARK: Delegate
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView{
-    CGFloat offset = scrollView.contentOffset.y + _collectionView.contentInset.top;
-//    NSLog(@"=== %f",offset);
+    CGFloat offset = scrollView.contentOffset.y + _collectionView.height*0.5;//_collectionView.contentInset.top;
     NSInteger index = roundl(offset / (_config.scaleWeigth + _config.scaleSpace));
     NSInteger c = index%_config.perScaleCount;
     if (c > 0) {
@@ -58,6 +68,16 @@
     }
     self.selectIndex = index;
     
+    if ([self.delegate respondsToSelector:@selector(scrollYearRuleView:selectedYear:selectedIndex:)]) {
+        NSString *year = @"";
+        BOOL isLength = index%(_config.perScaleCount) == 0;
+        if (isLength) {
+            NSInteger i = index/_config.perScaleCount;
+            NSInteger showYearNum = i%(_config.max - _config.min + 1) + _config.min;
+            year = [@"" stringByAppendingFormat:@"%zd",showYearNum];
+        }
+        [self.delegate scrollYearRuleView:self selectedYear:year selectedIndex:index];
+    }
     //绘制弧线 由于效果不佳，暂且不用
 //    [self circle];
 }
@@ -121,10 +141,10 @@
     if (!decelerate) {
         BOOL dragToDragStop = scrollView.tracking && !scrollView.dragging && !scrollView.decelerating;
         if (dragToDragStop) {
-         [self scrollViewToCenter];
+            [self scrollViewToCenter];
         }else{
             CGFloat maxOffset = _collectionViewLayout.actualLength * (_config.scaleWeigth + _config.scaleSpace);
-            CGFloat offset = scrollView.contentOffset.y + _collectionView.contentInset.top;
+            CGFloat offset = scrollView.contentOffset.y + _collectionView.height*0.5;
             if (offset >= maxOffset) {
              [self scrollViewToCenter];
             }
@@ -149,17 +169,20 @@
 //    MARK: DataSource
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-//    return self.indexArray.count;
     return self.collectionViewLayout.actualLength;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     ScrollYearCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"cell" forIndexPath:indexPath];
-    NSInteger index = [self.indexArray[indexPath.row] integerValue];
-    cell.index = index;
     cell.item = indexPath.item;
     cell.config = self.config;
     cell.collectionView = self.collectionView;
+    if (self.isSetup && self.selectIndex == indexPath.item) {
+        cell.isSetup = self.isSetup;
+        self.isSetup = NO;
+    }else{
+        cell.isSetup = NO;
+    }
     [cell setNeedsLayout];
     return cell;
 }
@@ -170,55 +193,39 @@
     if (self.config.max == 0 || self.config.min >= self.config.max) {
         return;
     } else {
-        [self.indexArray removeAllObjects];
-        NSInteger items = self.config.max - self.config.min;
+        NSInteger items = self.config.max - self.config.min + 1;
         NSInteger perSectionTotalCount = 0;
         NSInteger perScaleCount = self.config.perScaleCount;
-        //重复5组数据
         NSInteger section = self.config.sectionCount;
         if (section > 0) {
             //如果是一位小数类型，则数据扩大perScaleCount倍
-            perSectionTotalCount = items * perScaleCount + 1;
+            perSectionTotalCount = items * perScaleCount;
         } else {
             perSectionTotalCount = items + 1;
         }
         
-        NSInteger totalCount = section*perSectionTotalCount;
+        NSInteger totalCount = section*perSectionTotalCount - (self.config.perScaleCount - 1);
         self.collectionViewLayout.actualLength = totalCount;
         self.config.perSectionTotalCount = perSectionTotalCount;
         
-        NSInteger lastIndex = 0;
-        for (NSInteger i=0; i<totalCount; i++) {
-            lastIndex++;
-            NSInteger index = i%perSectionTotalCount;
-            NSInteger sectionIndex = i/perSectionTotalCount;
-            
-//            if (sectionIndex > 0 && sectionIndex != section && index == 0) {
-//                continue;
-//            }else{
-//                [self.indexArray addObject:@(index)];
-////                if (section > 0 && index==perSectionTotalCount-1) {
-////                    [self.indexArray addObject:@(index+1)];
-////                }
-//            }
-            
-//            if (sectionIndex > 0 && sectionIndex != section-1) {
-//
-//            }else{
-//                [self.indexArray addObject:@(index)];
-//            }
-            
-            [self.indexArray addObject:@(index)];
-        }
-        
-//        for (NSInteger i = lastIndex; i < (self.config.perScaleCount+lastIndex); i++) {
-//            NSInteger index = i%perSectionTotalCount;
-//            [self.indexArray addObject:@(index)];
-//        }
-        
         //默认没有指定选中值时
-        CGFloat offY = - (self.config.scaleWeigth*0.5 + self.collectionView.contentInset.top);
-        self.collectionView.contentOffset = CGPointMake(0, offY);
+        if (self.config.defaultSelectedYear > 0) {
+            self.isSetup = YES;
+            CGFloat offYear = self.config.defaultSelectedYear - self.config.min;
+            NSInteger middleCount = self.config.sectionCount/2;
+            NSInteger offIndex = offYear*self.config.perScaleCount;
+            NSInteger index = middleCount*perSectionTotalCount + offIndex;
+            self.selectIndex = index;
+            NSIndexPath *indexPath = [NSIndexPath indexPathForItem:index inSection:0];
+            [self.collectionView scrollToItemAtIndexPath:indexPath atScrollPosition:UICollectionViewScrollPositionCenteredVertically animated:NO];
+        }else{
+            self.isSetup = YES;
+            NSInteger middleCount = self.config.sectionCount/2;
+            NSInteger index = middleCount*perSectionTotalCount;
+            self.selectIndex = index;
+            NSIndexPath *indexPath = [NSIndexPath indexPathForItem:index inSection:0];
+            [self.collectionView scrollToItemAtIndexPath:indexPath atScrollPosition:UICollectionViewScrollPositionCenteredVertically animated:NO];
+        }
     }
 }
 
@@ -261,27 +268,62 @@
         _collectionView.showsHorizontalScrollIndicator = NO;
         _collectionView.bounces = NO;
         _collectionView.decelerationRate = 0.0;
-        CGFloat top = self.height*0.5;
-        CGFloat bottom = self.height*0.5;
-        UIEdgeInsets inset = UIEdgeInsetsMake(top,0,bottom,0);
-        _collectionView.contentInset = inset;
+        _collectionView.backgroundColor = _config.scaleBgColor;
+//        CGFloat top = self.height*0.5;
+//        CGFloat bottom = self.height*0.5;
+//        UIEdgeInsets inset = UIEdgeInsetsMake(top,0,bottom,0);
+//        _collectionView.contentInset = inset;
         [_collectionView registerClass:[ScrollYearCollectionViewCell class] forCellWithReuseIdentifier:@"cell"];
         [self initialData];
     }
     return _collectionView;
 }
 
-- (CALayer *)indicatorLayer{
-    if (!_indicatorLayer) {
-        _indicatorLayer = [[CALayer alloc] init];
-        _indicatorLayer.backgroundColor = [UIColor redColor].CGColor;
-        _indicatorLayer.height = 2;
-        _indicatorLayer.width = self.width;
-        _indicatorLayer.centerY = self.height*0.5;
-        _indicatorLayer.left = 0;
+- (CALayer *)lineIndicatorLayer{
+    if (!_lineIndicatorLayer) {
+        _lineIndicatorLayer = [[CALayer alloc] init];
+        _lineIndicatorLayer.backgroundColor = self.config.scaleColor.CGColor;
+        _lineIndicatorLayer.height = _collectionView.height;
+        _lineIndicatorLayer.width = self.config.circleLineWeight;
+        _lineIndicatorLayer.centerY = self.height*0.5;
+        _lineIndicatorLayer.left = _collectionView.width*0.5;
     }
-    return _indicatorLayer;
+    return _lineIndicatorLayer;
 }
+
+- (CAGradientLayer *)topGradientLayer{
+    if (!_topGradientLayer) {
+        _topGradientLayer = [CAGradientLayer layer];
+        _topGradientLayer.size = CGSizeMake(_collectionView.width, 60);
+        _topGradientLayer.top = 0;
+        _topGradientLayer.left = 0;
+        _topGradientLayer.contents = (__bridge id)[UIImage imageNamed:@"mask_text_t"].CGImage;
+    }
+    return _topGradientLayer;
+}
+
+- (CAGradientLayer *)bottomGradientLayer{
+    if (!_bottomGradientLayer) {
+        _bottomGradientLayer = [CAGradientLayer layer];
+        _bottomGradientLayer.size = CGSizeMake(_collectionView.width, 60);
+        _bottomGradientLayer.bottom = _collectionView.height;
+        _bottomGradientLayer.left = 0;
+        _bottomGradientLayer.contents = (__bridge id)[UIImage imageNamed:@"mask_text_u"].CGImage;
+    }
+    return _bottomGradientLayer;
+}
+
+//- (CALayer *)indicatorLayer{
+//    if (!_indicatorLayer) {
+//        _indicatorLayer = [[CALayer alloc] init];
+//        _indicatorLayer.backgroundColor = [UIColor redColor].CGColor;
+//        _indicatorLayer.height = 2;
+//        _indicatorLayer.width = self.width;
+//        _indicatorLayer.centerY = self.height*0.5;
+//        _indicatorLayer.left = 0;
+//    }
+//    return _indicatorLayer;
+//}
 
 - (ScrollYearRuleCollectionViewLayout *)collectionViewLayout{
     if (!_collectionViewLayout) {
@@ -299,11 +341,11 @@
     return _config;
 }
 
-- (NSMutableArray *)indexArray{
-    if (!_indexArray) {
-        _indexArray = [[NSMutableArray alloc] init];
-    }
-    return _indexArray;
-}
+//- (NSMutableArray *)indexArray{
+//    if (!_indexArray) {
+//        _indexArray = [[NSMutableArray alloc] init];
+//    }
+//    return _indexArray;
+//}
 
 @end

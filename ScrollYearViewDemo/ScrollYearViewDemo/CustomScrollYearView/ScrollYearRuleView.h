@@ -11,9 +11,20 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+@class ScrollYearRuleView;
+@protocol ScrollYearRuleViewDelegate <NSObject>
+
+@optional
+- (void) scrollYearRuleView:(ScrollYearRuleView *) view selectedYear:(NSString *) year selectedIndex:(NSInteger) index;
+
+@end
+
 @interface ScrollYearRuleView : UIView
 
+@property(nonatomic,weak) id<ScrollYearRuleViewDelegate> delegate;
 @property(nonatomic,strong) ScrollYearRuleViewConfig *config;
+
+- (void) refreshData;
 
 @end
 
