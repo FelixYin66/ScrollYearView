@@ -15,7 +15,7 @@ Pod::Spec.new do |spec|
   #  summary should be tweet-length, and the description more in depth.
   #
 
-  spec.name         = "ScrollYearViewDemo"
+  spec.name         = "CustomScrollYearView"
   spec.version      = "1.0"
   spec.summary      = "自定义尺子的年度选择器"
 
