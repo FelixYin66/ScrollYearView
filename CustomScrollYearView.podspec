@@ -114,7 +114,7 @@ Pod::Spec.new do |spec|
   #  non-essential files like tests, examples and documentation.
   #
 
-  spec.resource  = "ScrollYearViewDemo/ScrollYearViewDemo/Assets.xcassets/*.png"
+  spec.resource  = "ScrollYearViewDemo/ScrollYearViewDemo/CustomScrollYearView.bundle"
   # spec.resources = "Resources/*.png"
 
   # spec.preserve_paths = "FilesToSave", "MoreFilesToSave"

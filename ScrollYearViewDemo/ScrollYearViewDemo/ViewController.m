@@ -9,7 +9,7 @@
 #import "ViewController.h"
 #import "ScrollYearView.h"
 #import "ScrollYearRuleView.h"
-#import "UIView+Add.h"
+#import "UIView+FYAdd.h"
 
 @interface ViewController ()<ScrollYearRuleViewDelegate>
 
