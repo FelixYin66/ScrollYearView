@@ -1,0 +1,38 @@
+{
+  "name": "CustomScrollYearView",
+  "version": "1.0",
+  "summary": "自定义尺子的年度选择器",
+  "description": "自定义尺子的年度选择器",
+  "homepage": "http://EXAMPLE/ScrollYearViewDemo",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Felix Yin": "lafenglafenghaha@163.com"
+  },
+  "platforms": {
+    "ios": "9.0"
+  },
+  "source": {
+    "git": "https://github.com/FelixYin66/ScrollYearView.git",
+    "tag": "1.0"
+  },
+  "source_files": "ScrollYearViewDemo/ScrollYearViewDemo/CustomScrollYearView/*.{h,m}",
+  "resources": "ScrollYearViewDemo/ScrollYearViewDemo/Assets.xcassets/*.png",
+  "requires_arc": true,
+  "subspecs": [
+    {
+      "name": "Layout",
+      "source_files": "ScrollYearViewDemo/ScrollYearViewDemo/CustomScrollYearView/Layout/*.{h,m}"
+    },
+    {
+      "name": "Subviews",
+      "source_files": "ScrollYearViewDemo/ScrollYearViewDemo/CustomScrollYearView/Subviews/*.{h,m}"
+    },
+    {
+      "name": "Category",
+      "source_files": "ScrollYearViewDemo/ScrollYearViewDemo/Category/*.{h,m}"
+    }
+  ]
+}

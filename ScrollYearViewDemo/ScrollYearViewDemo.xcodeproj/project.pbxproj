@@ -21,9 +21,13 @@
 		8674518C246BC660004A7602 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8674518B246BC660004A7602 /* Assets.xcassets */; };
 		8674518F246BC660004A7602 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8674518D246BC660004A7602 /* LaunchScreen.storyboard */; };
 		86745192246BC660004A7602 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 86745191246BC660004A7602 /* main.m */; };
+		D1F3D02BAF04938B4641450A /* Pods_ScrollYearViewDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A29E6B39F626F49E669C8B5 /* Pods_ScrollYearViewDemo.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4A29E6B39F626F49E669C8B5 /* Pods_ScrollYearViewDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ScrollYearViewDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4A3A79923B89D2435ACA8AD9 /* Pods-ScrollYearViewDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ScrollYearViewDemo.debug.xcconfig"; path = "Target Support Files/Pods-ScrollYearViewDemo/Pods-ScrollYearViewDemo.debug.xcconfig"; sourceTree = "<group>"; };
+		8330EE851ECFFF5CA88EB58F /* Pods-ScrollYearViewDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ScrollYearViewDemo.release.xcconfig"; path = "Target Support Files/Pods-ScrollYearViewDemo/Pods-ScrollYearViewDemo.release.xcconfig"; sourceTree = "<group>"; };
 		865E52302472815D004F65FE /* ScrollYearRuleView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ScrollYearRuleView.h; sourceTree = "<group>"; };
 		865E52312472815D004F65FE /* ScrollYearRuleView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ScrollYearRuleView.m; sourceTree = "<group>"; };
 		865E523424728182004F65FE /* ScrollYearCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ScrollYearCollectionViewCell.h; sourceTree = "<group>"; };
@@ -57,12 +61,31 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D1F3D02BAF04938B4641450A /* Pods_ScrollYearViewDemo.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		689ED7137C7C2B9BBE21A426 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				4A29E6B39F626F49E669C8B5 /* Pods_ScrollYearViewDemo.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		70D31CB38F8B1EB48BE406EA /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				4A3A79923B89D2435ACA8AD9 /* Pods-ScrollYearViewDemo.debug.xcconfig */,
+				8330EE851ECFFF5CA88EB58F /* Pods-ScrollYearViewDemo.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		865E522F2472812C004F65FE /* CustomScrollYearView */ = {
 			isa = PBXGroup;
 			children = (
@@ -110,6 +133,8 @@
 			children = (
 				8674517E246BC65E004A7602 /* ScrollYearViewDemo */,
 				8674517D246BC65E004A7602 /* Products */,
+				70D31CB38F8B1EB48BE406EA /* Pods */,
+				689ED7137C7C2B9BBE21A426 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -158,9 +183,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 86745195246BC660004A7602 /* Build configuration list for PBXNativeTarget "ScrollYearViewDemo" */;
 			buildPhases = (
+				10B0A8621EF8F997AD94925A /* [CP] Check Pods Manifest.lock */,
 				86745178246BC65E004A7602 /* Sources */,
 				86745179246BC65E004A7602 /* Frameworks */,
 				8674517A246BC65E004A7602 /* Resources */,
+				7ED1EE172376603A26D5287E /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -215,6 +242,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		10B0A8621EF8F997AD94925A /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ScrollYearViewDemo-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7ED1EE172376603A26D5287E /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ScrollYearViewDemo/Pods-ScrollYearViewDemo-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ScrollYearViewDemo/Pods-ScrollYearViewDemo-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ScrollYearViewDemo/Pods-ScrollYearViewDemo-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		86745178246BC65E004A7602 /* Sources */ = {
@@ -369,6 +438,7 @@
 		};
 		86745196246BC660004A7602 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4A3A79923B89D2435ACA8AD9 /* Pods-ScrollYearViewDemo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -387,6 +457,7 @@
 		};
 		86745197246BC660004A7602 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8330EE851ECFFF5CA88EB58F /* Pods-ScrollYearViewDemo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;

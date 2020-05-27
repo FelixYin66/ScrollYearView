@@ -7,7 +7,7 @@
 //
 
 #import "ScrollYearRuleCollectionViewLayout.h"
-#import "UIView+FYAdd.h"
+#import "UIView+Add.h"
 #import "ScrollYearRuleViewConfig.h"
 
 @implementation ScrollYearRuleCollectionViewLayout

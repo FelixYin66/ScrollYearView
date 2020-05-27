@@ -1,0 +1,27 @@
+PODS:
+  - CustomScrollYearView (1.0):
+    - CustomScrollYearView/Category (= 1.0)
+    - CustomScrollYearView/Layout (= 1.0)
+    - CustomScrollYearView/Subviews (= 1.0)
+  - CustomScrollYearView/Category (1.0)
+  - CustomScrollYearView/Layout (1.0)
+  - CustomScrollYearView/Subviews (1.0)
+
+DEPENDENCIES:
+  - CustomScrollYearView (from `https://github.com/FelixYin66/ScrollYearView.git`)
+
+EXTERNAL SOURCES:
+  CustomScrollYearView:
+    :git: https://github.com/FelixYin66/ScrollYearView.git
+
+CHECKOUT OPTIONS:
+  CustomScrollYearView:
+    :commit: 6ad912898de8ff7cb92b59b9e4b38b51bbf5cfaf
+    :git: https://github.com/FelixYin66/ScrollYearView.git
+
+SPEC CHECKSUMS:
+  CustomScrollYearView: 75b47f3c6db2e51f3d9c885404fc1b19a873afa2
+
+PODFILE CHECKSUM: 3d51b241990c5f2b0c0ce983e418d8763bec5619
+
+COCOAPODS: 1.8.4

@@ -1,0 +1,6 @@
+framework module CustomScrollYearView {
+  umbrella header "CustomScrollYearView-umbrella.h"
+
+  export *
+  module * { export * }
+}
