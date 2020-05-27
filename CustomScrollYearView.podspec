@@ -89,17 +89,17 @@ Pod::Spec.new do |spec|
   #  Not including the public_header_files will make all headers public.
   #
 
-  spec.source_files  = "ScrollYearViewDemo/CustomScrollYearView/*.{h,m}"
+  spec.source_files  = "ScrollYearViewDemo/ScrollYearViewDemo/CustomScrollYearView/*.{h,m}"
   spec.subspec 'Layout' do |la|
-    la.source_files = "ScrollYearViewDemo/CustomScrollYearView/Layout/*.{h,m}"
+    la.source_files = "ScrollYearViewDemo/ScrollYearViewDemo/CustomScrollYearView/Layout/*.{h,m}"
   end
 
   spec.subspec 'Subviews' do |su|
-    su.source_files = "ScrollYearViewDemo/CustomScrollYearView/Subviews/*.{h,m}"
+    su.source_files = "ScrollYearViewDemo/ScrollYearViewDemo/CustomScrollYearView/Subviews/*.{h,m}"
   end
 
   spec.subspec 'Category' do |ct|
-    ct.source_files = "ScrollYearViewDemo/Category/*.{h,m}"
+    ct.source_files = "ScrollYearViewDemo/ScrollYearViewDemo/Category/*.{h,m}"
   end
   #spec.exclude_files = "Classes/Exclude"
 
@@ -114,7 +114,7 @@ Pod::Spec.new do |spec|
   #  non-essential files like tests, examples and documentation.
   #
 
-  spec.resource  = "ScrollYearViewDemo/Assets.xcassets/*.png"
+  spec.resource  = "ScrollYearViewDemo/ScrollYearViewDemo/Assets.xcassets/*.png"
   # spec.resources = "Resources/*.png"
 
   # spec.preserve_paths = "FilesToSave", "MoreFilesToSave"
