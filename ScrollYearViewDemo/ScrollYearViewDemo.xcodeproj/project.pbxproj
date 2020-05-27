@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -21,6 +21,7 @@
 		8674518C246BC660004A7602 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8674518B246BC660004A7602 /* Assets.xcassets */; };
 		8674518F246BC660004A7602 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8674518D246BC660004A7602 /* LaunchScreen.storyboard */; };
 		86745192246BC660004A7602 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 86745191246BC660004A7602 /* main.m */; };
+		86EB34F4247E7079005E29CE /* CustomScrollYearView.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 86EB34F3247E7079005E29CE /* CustomScrollYearView.bundle */; };
 		D1F3D02BAF04938B4641450A /* Pods_ScrollYearViewDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A29E6B39F626F49E669C8B5 /* Pods_ScrollYearViewDemo.framework */; };
 /* End PBXBuildFile section */
 
@@ -54,6 +55,7 @@
 		86745191246BC660004A7602 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		86745199246BC6A8004A7602 /* ScrollYearView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ScrollYearView.h; sourceTree = "<group>"; };
 		8674519A246BC6A8004A7602 /* ScrollYearView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ScrollYearView.m; sourceTree = "<group>"; };
+		86EB34F3247E7079005E29CE /* CustomScrollYearView.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = CustomScrollYearView.bundle; path = ScrollYearViewDemo/CustomScrollYearView.bundle; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,13 +84,13 @@
 				4A3A79923B89D2435ACA8AD9 /* Pods-ScrollYearViewDemo.debug.xcconfig */,
 				8330EE851ECFFF5CA88EB58F /* Pods-ScrollYearViewDemo.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
 		865E522F2472812C004F65FE /* CustomScrollYearView */ = {
 			isa = PBXGroup;
 			children = (
+				86EB34F3247E7079005E29CE /* CustomScrollYearView.bundle */,
 				865E523724728186004F65FE /* Layout */,
 				865E523324728163004F65FE /* Subviews */,
 				865E52302472815D004F65FE /* ScrollYearRuleView.h */,
@@ -236,6 +238,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8674518F246BC660004A7602 /* LaunchScreen.storyboard in Resources */,
+				86EB34F4247E7079005E29CE /* CustomScrollYearView.bundle in Resources */,
 				8674518C246BC660004A7602 /* Assets.xcassets in Resources */,
 				8674518A246BC65E004A7602 /* Main.storyboard in Resources */,
 			);

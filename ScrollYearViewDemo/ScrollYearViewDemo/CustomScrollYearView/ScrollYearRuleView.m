@@ -330,7 +330,7 @@
         _topGradientLayer.size = CGSizeMake(_collectionView.width, 60);
         _topGradientLayer.top = 0;
         _topGradientLayer.left = 0;
-        _topGradientLayer.contents = (__bridge id)[UIImage imageNamed:@"mask_text_t"].CGImage;
+        _topGradientLayer.contents = (__bridge id)[self imageNamed:@"mask_text_t" ofBundle:@"CustomScrollYearView"].CGImage;
     }
     return _topGradientLayer;
 }
@@ -341,9 +341,16 @@
         _bottomGradientLayer.size = CGSizeMake(_collectionView.width, 60);
         _bottomGradientLayer.bottom = _collectionView.height;
         _bottomGradientLayer.left = 0;
-        _bottomGradientLayer.contents = (__bridge id)[UIImage imageNamed:@"mask_text_u"].CGImage;
+        _bottomGradientLayer.contents = (__bridge id)[self imageNamed:@"mask_text_u" ofBundle:@"CustomScrollYearView"].CGImage;
     }
     return _bottomGradientLayer;
+}
+
+- (UIImage *)imageNamed:(NSString *)name ofBundle:(NSString *)bundleName {
+    NSBundle *bundle = [NSBundle bundleForClass:NSClassFromString(bundleName)];
+    NSString *bundlePath = [bundle pathForResource:bundleName ofType:@"bundle"];
+    UIImage *image = [UIImage imageNamed:[bundlePath stringByAppendingPathComponent:name]];
+    return image;
 }
 
 //- (CALayer *)indicatorLayer{
