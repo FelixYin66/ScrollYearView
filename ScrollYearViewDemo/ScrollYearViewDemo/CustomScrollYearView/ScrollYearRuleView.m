@@ -187,6 +187,39 @@
     return cell;
 }
 
+
+/*
+ 
+ 实现无限循环：
+ 1.滚动顶部没数据 （只有能增加新的，没法增加已存在的）
+ 
+ */
+//- (void)collectionView:(UICollectionView *)collectionView willDisplayCell:(UICollectionViewCell *)cell forItemAtIndexPath:(NSIndexPath *)indexPath {
+//    __weak typeof(self) weakSelf = self;
+//    NSInteger totalCount = weakSelf.collectionViewLayout.actualLength;
+//    NSInteger startIndex = self.collectionViewLayout.config.prepareLoadIndex;
+//    BOOL isStartMin = (indexPath.item+50) == startIndex;
+//    if (isStartMin || (totalCount == indexPath.item+startIndex)) {
+//        NSInteger perTotalCount = self.collectionViewLayout.config.perSectionTotalCount;
+//        NSInteger index = isStartMin ? 0 : totalCount;
+//        NSInteger endIndex = isStartMin ? perTotalCount : (totalCount+perTotalCount);
+//        dispatch_async(dispatch_get_global_queue(0, 0), ^{
+//            NSInteger newTotalCount = totalCount+perTotalCount;
+//            NSMutableArray *array = [NSMutableArray arrayWithCapacity:perTotalCount];
+//            for (NSInteger i = index; i < endIndex; i++) {
+//                NSIndexPath *indexPath = [NSIndexPath indexPathForItem:i inSection:0];
+//                [array addObject:indexPath];
+//            }
+//            dispatch_async(dispatch_get_main_queue(), ^{
+//                weakSelf.collectionViewLayout.actualLength = newTotalCount;
+//                [weakSelf.collectionView insertItemsAtIndexPaths:array];
+//            });
+//        });
+//    }
+//}
+
+
+
 //    MARK: InitialData
 
 - (void)initialData {

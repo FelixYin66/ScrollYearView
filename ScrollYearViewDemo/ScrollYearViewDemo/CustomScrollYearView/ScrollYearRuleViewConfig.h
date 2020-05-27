@@ -31,6 +31,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic,assign) CGFloat cornerRadius;
 @property(nonatomic,assign) CGFloat circleLineWeight;
 @property(nonatomic,assign) NSInteger defaultSelectedYear;
+@property(nonatomic,assign) NSInteger prepareLoadIndex;
 
 @end
 

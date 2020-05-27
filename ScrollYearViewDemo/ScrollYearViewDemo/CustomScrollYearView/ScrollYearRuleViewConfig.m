@@ -33,6 +33,7 @@
         _sectionCount = 5;
         _cornerRadius = lineLength*2/M_PI;
         _defaultSelectedYear = 1999;
+        _prepareLoadIndex = 100;
     }
     return self;
 }
