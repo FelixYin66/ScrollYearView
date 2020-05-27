@@ -10,7 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface CALayer (Add)
+@interface CALayer (FYAdd)
 
 @property (nonatomic) CGFloat left;
 @property (nonatomic) CGFloat top;

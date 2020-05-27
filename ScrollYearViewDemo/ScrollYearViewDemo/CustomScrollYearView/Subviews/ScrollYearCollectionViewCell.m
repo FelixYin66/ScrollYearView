@@ -8,8 +8,8 @@
 
 #import "ScrollYearCollectionViewCell.h"
 #import "ScrollYearRuleViewConfig.h"
-#import "CALayer+Add.h"
-#import "UIView+Add.h"
+#import "CALayer+FYAdd.h"
+#import "UIView+FYAdd.h"
 
 @interface ScrollYearCollectionViewCell ()
 

@@ -6,10 +6,10 @@
 //  Copyright © 2020 Felix Yin. All rights reserved.
 //
 
-#import "CALayer+Add.h"
+#import "CALayer+FYAdd.h"
 
 
-@implementation CALayer (Add)
+@implementation CALayer (FYAdd)
 
 - (CGFloat)left {
     return self.frame.origin.x;

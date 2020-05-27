@@ -11,8 +11,8 @@
 		865E52322472815D004F65FE /* ScrollYearRuleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 865E52312472815D004F65FE /* ScrollYearRuleView.m */; };
 		865E523624728182004F65FE /* ScrollYearCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 865E523524728182004F65FE /* ScrollYearCollectionViewCell.m */; };
 		865E523A247281AD004F65FE /* ScrollYearRuleCollectionViewLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 865E5239247281AD004F65FE /* ScrollYearRuleCollectionViewLayout.m */; };
-		865E523E2472828F004F65FE /* UIView+Add.m in Sources */ = {isa = PBXBuildFile; fileRef = 865E523D2472828F004F65FE /* UIView+Add.m */; };
-		865E52412472829D004F65FE /* CALayer+Add.m in Sources */ = {isa = PBXBuildFile; fileRef = 865E52402472829D004F65FE /* CALayer+Add.m */; };
+		865E523E2472828F004F65FE /* UIView+FYAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = 865E523D2472828F004F65FE /* UIView+FYAdd.m */; };
+		865E52412472829D004F65FE /* CALayer+FYAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = 865E52402472829D004F65FE /* CALayer+FYAdd.m */; };
 		865E524424728655004F65FE /* ScrollYearRuleViewConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 865E524324728655004F65FE /* ScrollYearRuleViewConfig.m */; };
 		86745181246BC65E004A7602 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 86745180246BC65E004A7602 /* AppDelegate.m */; };
 		86745184246BC65E004A7602 /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 86745183246BC65E004A7602 /* SceneDelegate.m */; };
@@ -30,10 +30,10 @@
 		865E523524728182004F65FE /* ScrollYearCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ScrollYearCollectionViewCell.m; sourceTree = "<group>"; };
 		865E5238247281AD004F65FE /* ScrollYearRuleCollectionViewLayout.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ScrollYearRuleCollectionViewLayout.h; sourceTree = "<group>"; };
 		865E5239247281AD004F65FE /* ScrollYearRuleCollectionViewLayout.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ScrollYearRuleCollectionViewLayout.m; sourceTree = "<group>"; };
-		865E523C2472828F004F65FE /* UIView+Add.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+Add.h"; sourceTree = "<group>"; };
-		865E523D2472828F004F65FE /* UIView+Add.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIView+Add.m"; sourceTree = "<group>"; };
-		865E523F2472829D004F65FE /* CALayer+Add.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CALayer+Add.h"; sourceTree = "<group>"; };
-		865E52402472829D004F65FE /* CALayer+Add.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "CALayer+Add.m"; sourceTree = "<group>"; };
+		865E523C2472828F004F65FE /* UIView+FYAdd.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+FYAdd.h"; sourceTree = "<group>"; };
+		865E523D2472828F004F65FE /* UIView+FYAdd.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIView+FYAdd.m"; sourceTree = "<group>"; };
+		865E523F2472829D004F65FE /* CALayer+FYAdd.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CALayer+FYAdd.h"; sourceTree = "<group>"; };
+		865E52402472829D004F65FE /* CALayer+FYAdd.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "CALayer+FYAdd.m"; sourceTree = "<group>"; };
 		865E524224728655004F65FE /* ScrollYearRuleViewConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ScrollYearRuleViewConfig.h; sourceTree = "<group>"; };
 		865E524324728655004F65FE /* ScrollYearRuleViewConfig.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ScrollYearRuleViewConfig.m; sourceTree = "<group>"; };
 		8674517C246BC65E004A7602 /* ScrollYearViewDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ScrollYearViewDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -97,10 +97,10 @@
 		865E523B2472827A004F65FE /* Category */ = {
 			isa = PBXGroup;
 			children = (
-				865E523C2472828F004F65FE /* UIView+Add.h */,
-				865E523D2472828F004F65FE /* UIView+Add.m */,
-				865E523F2472829D004F65FE /* CALayer+Add.h */,
-				865E52402472829D004F65FE /* CALayer+Add.m */,
+				865E523C2472828F004F65FE /* UIView+FYAdd.h */,
+				865E523D2472828F004F65FE /* UIView+FYAdd.m */,
+				865E523F2472829D004F65FE /* CALayer+FYAdd.h */,
+				865E52402472829D004F65FE /* CALayer+FYAdd.m */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -222,11 +222,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				865E522E24728128004F65FE /* ScrollYearView.m in Sources */,
-				865E52412472829D004F65FE /* CALayer+Add.m in Sources */,
+				865E52412472829D004F65FE /* CALayer+FYAdd.m in Sources */,
 				86745187246BC65E004A7602 /* ViewController.m in Sources */,
 				86745181246BC65E004A7602 /* AppDelegate.m in Sources */,
 				86745192246BC660004A7602 /* main.m in Sources */,
-				865E523E2472828F004F65FE /* UIView+Add.m in Sources */,
+				865E523E2472828F004F65FE /* UIView+FYAdd.m in Sources */,
 				865E523A247281AD004F65FE /* ScrollYearRuleCollectionViewLayout.m in Sources */,
 				865E524424728655004F65FE /* ScrollYearRuleViewConfig.m in Sources */,
 				865E523624728182004F65FE /* ScrollYearCollectionViewCell.m in Sources */,

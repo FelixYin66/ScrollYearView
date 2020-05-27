@@ -6,10 +6,10 @@
 //  Copyright © 2020 Felix Yin. All rights reserved.
 //
 
-#import "UIView+Add.h"
+#import "UIView+FYAdd.h"
 
 
-@implementation UIView (Add)
+@implementation UIView (FYAdd)
 
 - (CGFloat)left {
     return self.frame.origin.x;

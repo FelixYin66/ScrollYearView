@@ -7,8 +7,8 @@
 //
 
 #import "ScrollYearRuleView.h"
-#import "UIView+Add.h"
-#import "CALayer+Add.h"
+#import "UIView+FYAdd.h"
+#import "CALayer+FYAdd.h"
 #import "ScrollYearRuleCollectionViewLayout.h"
 #import "ScrollYearCollectionViewCell.h"
 
