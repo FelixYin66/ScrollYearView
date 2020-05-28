@@ -119,12 +119,12 @@ Pod::Spec.new do |spec|
   #
 
   #图片等其他一些资源文件  将指定文件夹下的CustomScrollYearView.bundle作为资源文件
-  #spec.resource  = "ScrollYearViewDemo/ScrollYearViewDemo/CustomScrollYearView.bundle"
+  spec.resource  = "ScrollYearViewDemo/ScrollYearViewDemo/CustomScrollYearView.bundle"
 
   #这种方式添加资源文件 会自动创建ScrollYearViewDemo.bundle，此bundle中的资源文件都为Assets中的文件
-  spec.resource_bundles = {
-    'ScrollYearViewDemo' => ['ScrollYearViewDemo/ScrollYearViewDemo/Assets.xcassets/**/*']
-  }
+  #spec.resource_bundles = {
+   # 'ScrollYearViewDemo' => ['ScrollYearViewDemo/ScrollYearViewDemo/Assets/*']
+  #}
   # spec.resources = "Resources/*.png"
 
   # spec.preserve_paths = "FilesToSave", "MoreFilesToSave"
