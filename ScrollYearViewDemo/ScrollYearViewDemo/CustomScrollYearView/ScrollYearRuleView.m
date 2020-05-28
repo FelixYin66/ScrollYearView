@@ -347,10 +347,18 @@
 }
 
 - (UIImage *)imageNamed:(NSString *)name ofBundle:(NSString *)bundleName {
-    NSBundle *bundle = [NSBundle bundleForClass:NSClassFromString(bundleName)];
+    //ScrollYearRuleView 为打包后framework包中的类
+    NSBundle *bundle = [NSBundle bundleForClass:NSClassFromString(@"ScrollYearRuleView")];
     NSString *bundlePath = [bundle pathForResource:bundleName ofType:@"bundle"];
-    UIImage *image = [UIImage imageNamed:[bundlePath stringByAppendingPathComponent:name]];
-    return image;
+    NSBundle *resourceBundle = [NSBundle bundleWithPath:bundlePath];
+    if (@available(iOS 13.0, *)) {
+        UIImage *image = [UIImage imageNamed:name inBundle:resourceBundle withConfiguration:nil];
+        return image;
+    } else {
+        // Fallback on earlier versions
+        UIImage *image = [UIImage imageNamed:name inBundle:resourceBundle compatibleWithTraitCollection:nil];
+        return image;
+    }
 }
 
 //- (CALayer *)indicatorLayer{
