@@ -63,6 +63,7 @@ Pod::Spec.new do |spec|
   #
 
   #spec.platform     = :ios
+  #支持iOS,版本最低9.0
   spec.platform     = :ios, "9.0"
 
   #  When using multiple platforms
@@ -78,6 +79,7 @@ Pod::Spec.new do |spec|
   #  Supports git, hg, bzr, svn and HTTP.
   #
 
+  #资源文件所在远程地址
   spec.source       = { :git => "https://github.com/FelixYin66/ScrollYearView.git", :tag => spec.version }
 
 
@@ -89,7 +91,9 @@ Pod::Spec.new do |spec|
   #  Not including the public_header_files will make all headers public.
   #
 
+  #.h,.m文件相对文件地址
   spec.source_files  = "ScrollYearViewDemo/ScrollYearViewDemo/CustomScrollYearView/*.{h,m}"
+  #自动生成子文件夹Layout，并按照source_files指定地址将文件放在Layout文件夹中
   spec.subspec 'Layout' do |la|
     la.source_files = "ScrollYearViewDemo/ScrollYearViewDemo/CustomScrollYearView/Layout/*.{h,m}"
   end
@@ -114,7 +118,13 @@ Pod::Spec.new do |spec|
   #  non-essential files like tests, examples and documentation.
   #
 
-  spec.resource  = "ScrollYearViewDemo/ScrollYearViewDemo/CustomScrollYearView.bundle"
+  #图片等其他一些资源文件  将指定文件夹下的CustomScrollYearView.bundle作为资源文件
+  #spec.resource  = "ScrollYearViewDemo/ScrollYearViewDemo/CustomScrollYearView.bundle"
+
+  #这种方式添加资源文件 会自动创建ScrollYearViewDemo.bundle，此bundle中的资源文件都为Assets中的文件
+  spec.resource_bundles = {
+    'ScrollYearViewDemo' => ['ScrollYearViewDemo/ScrollYearViewDemo/Assets.xcassets/**/*']
+  }
   # spec.resources = "Resources/*.png"
 
   # spec.preserve_paths = "FilesToSave", "MoreFilesToSave"
