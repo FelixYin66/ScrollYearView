@@ -37,7 +37,7 @@
             [self.layer addSublayer:self.topGradientLayer];
             [self.layer addSublayer:self.bottomGradientLayer];
     //        [self.layer addSublayer:[self drawLine]];
-    //        [self.layer addSublayer:self.indicatorLayer];
+//            [self.layer addSublayer:self.indicatorLayer];
         }
         return self;
 }
@@ -317,6 +317,16 @@
         _collectionView.bounces = NO;
         _collectionView.decelerationRate = 0.0;
         _collectionView.backgroundColor = _config.scaleBgColor;
+        if (@available(iOS 11.0, *)) {
+            _collectionView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
+        } else {
+            if (@available(iOS 13.0, *)) {
+                _collectionView.automaticallyAdjustsScrollIndicatorInsets = NO;
+            } else {
+                // Fallback on earlier versions
+            }
+        }
+        
 //        CGFloat top = self.height*0.5;
 //        CGFloat bottom = self.height*0.5;
 //        UIEdgeInsets inset = UIEdgeInsetsMake(top,0,bottom,0);
