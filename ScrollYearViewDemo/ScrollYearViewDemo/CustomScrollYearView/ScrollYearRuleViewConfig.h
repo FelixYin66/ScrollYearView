@@ -30,6 +30,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic,strong) UIFont  *textMaxFont;
 @property(nonatomic,assign) CGFloat cornerRadius;
 @property(nonatomic,assign) CGFloat circleLineWeight;
+@property(nonatomic,assign) CGFloat circleLineToScaleSpace; // 刻度尺与分界线间距
 @property(nonatomic,assign) NSInteger defaultSelectedYear;
 @property(nonatomic,assign) NSInteger prepareLoadIndex;
 

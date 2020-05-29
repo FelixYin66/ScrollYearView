@@ -330,7 +330,7 @@
         _topGradientLayer.size = CGSizeMake(_collectionView.width, 60);
         _topGradientLayer.top = 0;
         _topGradientLayer.left = 0;
-        _topGradientLayer.contents = (__bridge id)[UIImage imageNamed:@"mask_text_t"].CGImage;
+        _topGradientLayer.contents = (__bridge id)[self imageNamed:@"mask_text_t" ofBundle:@"CustomScrollYearView"].CGImage;
     }
     return _topGradientLayer;
 }
@@ -341,9 +341,24 @@
         _bottomGradientLayer.size = CGSizeMake(_collectionView.width, 60);
         _bottomGradientLayer.bottom = _collectionView.height;
         _bottomGradientLayer.left = 0;
-        _bottomGradientLayer.contents = (__bridge id)[UIImage imageNamed:@"mask_text_u"].CGImage;
+        _bottomGradientLayer.contents = (__bridge id)[self imageNamed:@"mask_text_u" ofBundle:@"CustomScrollYearView"].CGImage;
     }
     return _bottomGradientLayer;
+}
+
+- (UIImage *)imageNamed:(NSString *)name ofBundle:(NSString *)bundleName {
+    //ScrollYearRuleView 为打包后framework包中的类
+    NSBundle *bundle = [NSBundle bundleForClass:NSClassFromString(@"ScrollYearRuleView")];
+    NSString *bundlePath = [bundle pathForResource:bundleName ofType:@"bundle"];
+    NSBundle *resourceBundle = [NSBundle bundleWithPath:bundlePath];
+    if (@available(iOS 13.0, *)) {
+        UIImage *image = [UIImage imageNamed:name inBundle:resourceBundle withConfiguration:nil];
+        return image;
+    } else {
+        // Fallback on earlier versions
+        UIImage *image = [UIImage imageNamed:name inBundle:resourceBundle compatibleWithTraitCollection:nil];
+        return image;
+    }
 }
 
 //- (CALayer *)indicatorLayer{

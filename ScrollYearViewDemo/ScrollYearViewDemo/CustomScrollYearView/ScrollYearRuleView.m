@@ -27,6 +27,21 @@
 
 @implementation ScrollYearRuleView
 
+
+- (instancetype)initWithFrame:(CGRect)frame config:(ScrollYearRuleViewConfig *)config{
+    self = [super initWithFrame:frame];
+        if (self) {
+            _config = config;
+            [self addSubview:self.collectionView];
+            [self.layer addSublayer:self.lineIndicatorLayer];
+            [self.layer addSublayer:self.topGradientLayer];
+            [self.layer addSublayer:self.bottomGradientLayer];
+    //        [self.layer addSublayer:[self drawLine]];
+    //        [self.layer addSublayer:self.indicatorLayer];
+        }
+        return self;
+}
+
 - (instancetype)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
@@ -319,7 +334,7 @@
         _lineIndicatorLayer.height = _collectionView.height;
         _lineIndicatorLayer.width = self.config.circleLineWeight;
         _lineIndicatorLayer.centerY = self.height*0.5;
-        _lineIndicatorLayer.left = _collectionView.width*0.5;
+        _lineIndicatorLayer.left = self.config.longScaleSize + self.config.circleLineToScaleSpace;//_collectionView.width*0.5;
     }
     return _lineIndicatorLayer;
 }

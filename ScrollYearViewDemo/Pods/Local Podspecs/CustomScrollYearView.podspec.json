@@ -19,7 +19,7 @@
     "tag": "1.0"
   },
   "source_files": "ScrollYearViewDemo/ScrollYearViewDemo/CustomScrollYearView/*.{h,m}",
-  "resources": "ScrollYearViewDemo/ScrollYearViewDemo/Assets.xcassets/*.png",
+  "resources": "ScrollYearViewDemo/ScrollYearViewDemo/CustomScrollYearView.bundle",
   "requires_arc": true,
   "subspecs": [
     {

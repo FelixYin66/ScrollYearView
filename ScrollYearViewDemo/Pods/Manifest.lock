@@ -16,11 +16,11 @@ EXTERNAL SOURCES:
 
 CHECKOUT OPTIONS:
   CustomScrollYearView:
-    :commit: 309e45e84fc0990050fb4015c56fced5acc63c17
+    :commit: a3fcaac2edeef80d4665a76171393c615b30a331
     :git: https://github.com/FelixYin66/ScrollYearView.git
 
 SPEC CHECKSUMS:
-  CustomScrollYearView: 75b47f3c6db2e51f3d9c885404fc1b19a873afa2
+  CustomScrollYearView: 1861dfeeabdd73b4cf4ad83a86bb0c08958ecf84
 
 PODFILE CHECKSUM: 3d51b241990c5f2b0c0ce983e418d8763bec5619
 

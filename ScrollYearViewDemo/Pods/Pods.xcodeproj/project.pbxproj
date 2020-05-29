@@ -3,28 +3,29 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0695AE2998320F2D5B91FC2894E5CAD6 /* ScrollYearRuleCollectionViewLayout.h in Headers */ = {isa = PBXBuildFile; fileRef = 96ACF6A17ABC19047A16A85FDC1E5389 /* ScrollYearRuleCollectionViewLayout.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		0CD77CD1066F3AF7DA8414C5CF63A355 /* ScrollYearRuleViewConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 8448125E0AF2044B6E9A2601F4616BA1 /* ScrollYearRuleViewConfig.m */; };
-		205F8B7B85115B0A531A16DD060F47EB /* ScrollYearRuleCollectionViewLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = EF50A538D51BD63F688FB6729B2053E2 /* ScrollYearRuleCollectionViewLayout.m */; };
+		1D26DBF3DB24D289B3FE99EEC3457BBE /* ScrollYearRuleView.h in Headers */ = {isa = PBXBuildFile; fileRef = A5CA644863427987E1A677D58DFAD807 /* ScrollYearRuleView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1EB804802463A30F328FAC8A7782C817 /* CALayer+FYAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = 66C539F1F7CCA74F0878A28503348F14 /* CALayer+FYAdd.m */; };
+		22106D27D9B89780FBBB482C140CFA7D /* UIView+FYAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = 40ED9E83DBA270CE5E0D329DB9F87D11 /* UIView+FYAdd.m */; };
+		28551D33D7EA3D317F466683885CCF4D /* ScrollYearRuleViewConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 019019F4DEAFF826C17834E00ADF7576 /* ScrollYearRuleViewConfig.m */; };
+		287013C7F545FB5704F295D0D12A55BB /* ScrollYearRuleCollectionViewLayout.h in Headers */ = {isa = PBXBuildFile; fileRef = 15594429DA75984F2DCD39F9D6DF56B5 /* ScrollYearRuleCollectionViewLayout.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		307C2A1326674030947F570ABC2DE4FA /* Pods-ScrollYearViewDemo-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = FD6B5FB9ABE6D4D4DB0BF65CED4EAD63 /* Pods-ScrollYearViewDemo-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		341278F19D87633CFD953099D0E1DC9D /* CustomScrollYearView-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = B2176ACAC018F8F0463162A996768923 /* CustomScrollYearView-dummy.m */; };
-		39A7A50E6994F72D1669ED63F1967D66 /* CALayer+FYAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = 71B3D8F9F76A271B68FD189437A094ED /* CALayer+FYAdd.m */; };
-		45BCB38642761D0C7CF23D59A679AC15 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */; };
+		425B225926212FB2033BF11CF7D81029 /* ScrollYearRuleViewConfig.h in Headers */ = {isa = PBXBuildFile; fileRef = 588BC38E46DADB54311E83B94969CABC /* ScrollYearRuleViewConfig.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		4273ACC61861FD7AAC9FE93EC2E70860 /* ScrollYearRuleView.m in Sources */ = {isa = PBXBuildFile; fileRef = AC21FD9560036B71535DD39E9E957E54 /* ScrollYearRuleView.m */; };
 		48AB15AFD6A552CD9CEBE9F4B6379E67 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */; };
-		6423AAE8B251DAFB90D7160648A5E727 /* ScrollYearCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 17FADA8C6ADE5B547BC59DACB8BF7E05 /* ScrollYearCollectionViewCell.m */; };
-		67B56AE7C40D59A82568B6536E63F9FF /* ScrollYearRuleViewConfig.h in Headers */ = {isa = PBXBuildFile; fileRef = A3185DB62483C7F7F512CC183E100C66 /* ScrollYearRuleViewConfig.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		752680EFCF520AAA02F5CBA89614CEB0 /* UIView+FYAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = BFF75EC7A7738C31204CD01D3AA0E36D /* UIView+FYAdd.m */; };
+		5B318E8BF035EF7B69DCC69C59DF94E6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */; };
+		66360FC750DD14D510CAE153AEAB75C8 /* ScrollYearCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 175D932C430E785EF148556685EBD070 /* ScrollYearCollectionViewCell.m */; };
+		69B24EE3B2E7E873820AB0ECD86B078D /* CustomScrollYearView.bundle in Resources */ = {isa = PBXBuildFile; fileRef = BC0F104E1A3F71187DFF9AF023F5AAC0 /* CustomScrollYearView.bundle */; };
+		858A298DFDB1517362D9514E258C852C /* CustomScrollYearView-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = F2779E3E7C208F159D80775D7D006D3A /* CustomScrollYearView-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		8A52504EF0E97EDA029B96ACBA1DAB3A /* ScrollYearRuleCollectionViewLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = CC966F159AFE5459006967C481949F83 /* ScrollYearRuleCollectionViewLayout.m */; };
 		B16C4519A40199B8F39AC5DAFB3E5AB6 /* Pods-ScrollYearViewDemo-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 07FD5EF8A98649F68B17E516BB36793A /* Pods-ScrollYearViewDemo-dummy.m */; };
-		C10F7925DA058580B4898AC08603BD8C /* CustomScrollYearView-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = C5990D9824A4B5C8B80F7770087D3BC4 /* CustomScrollYearView-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		C9F15C5A9E4BB0E727E7D3195F94A72F /* ScrollYearRuleView.m in Sources */ = {isa = PBXBuildFile; fileRef = AE3AF93A8CEBD17CD9A84D9A3DB9F9FB /* ScrollYearRuleView.m */; };
-		CCCA884B26F2FD5389EB1E58ED57E532 /* UIView+FYAdd.h in Headers */ = {isa = PBXBuildFile; fileRef = D90DCFE49DE1D3AA107201957B50359A /* UIView+FYAdd.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		CF5112957AEA583492467F3AC4879D85 /* CALayer+FYAdd.h in Headers */ = {isa = PBXBuildFile; fileRef = 9369FF73D5D992078BF69FA5747138B9 /* CALayer+FYAdd.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		E7880A9D3E3E0192726EC3C656A32A36 /* ScrollYearCollectionViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 653287443611C05C5B62CCF3FCD2A1A6 /* ScrollYearCollectionViewCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		E86EE3B7DEAB1DF28F2CB68985C86D6E /* ScrollYearRuleView.h in Headers */ = {isa = PBXBuildFile; fileRef = 8B9D200F15A3E0CF1AF5BAB34A78B384 /* ScrollYearRuleView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		BF96DBD5FBBF1BC88554FB3B5A67AF4F /* UIView+FYAdd.h in Headers */ = {isa = PBXBuildFile; fileRef = 7428999CF65ED3461F9CB5D11EEDF828 /* UIView+FYAdd.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D04DD8C25FDC18ED5ED5CD81F546AA99 /* CustomScrollYearView-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = E6A6D1FBCDE2C9B56DDCB74C16554079 /* CustomScrollYearView-dummy.m */; };
+		FAAD4D2A5B1866D8229F8B40B71EA495 /* ScrollYearCollectionViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = C30B64A5D7B161FC4D7A68B6618E018C /* ScrollYearCollectionViewCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		FEC7C735C8A6706E0C31EF9CE16927D6 /* CALayer+FYAdd.h in Headers */ = {isa = PBXBuildFile; fileRef = DC6C7D2F200AEE08D73FC0D279183A04 /* CALayer+FYAdd.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,45 +39,46 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		019019F4DEAFF826C17834E00ADF7576 /* ScrollYearRuleViewConfig.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = ScrollYearRuleViewConfig.m; path = ScrollYearViewDemo/ScrollYearViewDemo/CustomScrollYearView/ScrollYearRuleViewConfig.m; sourceTree = "<group>"; };
 		07FD5EF8A98649F68B17E516BB36793A /* Pods-ScrollYearViewDemo-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-ScrollYearViewDemo-dummy.m"; sourceTree = "<group>"; };
-		17FADA8C6ADE5B547BC59DACB8BF7E05 /* ScrollYearCollectionViewCell.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = ScrollYearCollectionViewCell.m; path = ScrollYearViewDemo/ScrollYearViewDemo/CustomScrollYearView/Subviews/ScrollYearCollectionViewCell.m; sourceTree = "<group>"; };
+		0A9CDEDC103A50CA9334A473CCBC7FBF /* CustomScrollYearView.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = CustomScrollYearView.modulemap; sourceTree = "<group>"; };
+		15594429DA75984F2DCD39F9D6DF56B5 /* ScrollYearRuleCollectionViewLayout.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ScrollYearRuleCollectionViewLayout.h; path = ScrollYearViewDemo/ScrollYearViewDemo/CustomScrollYearView/Layout/ScrollYearRuleCollectionViewLayout.h; sourceTree = "<group>"; };
+		175D932C430E785EF148556685EBD070 /* ScrollYearCollectionViewCell.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = ScrollYearCollectionViewCell.m; path = ScrollYearViewDemo/ScrollYearViewDemo/CustomScrollYearView/Subviews/ScrollYearCollectionViewCell.m; sourceTree = "<group>"; };
 		18F49282D83DCB158FEF930804F1D5AB /* Pods-ScrollYearViewDemo.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-ScrollYearViewDemo.modulemap"; sourceTree = "<group>"; };
 		2CFD87FFD4C360CA8A77A07180D0DB82 /* Pods-ScrollYearViewDemo-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-ScrollYearViewDemo-frameworks.sh"; sourceTree = "<group>"; };
 		3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.2.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		40ED9E83DBA270CE5E0D329DB9F87D11 /* UIView+FYAdd.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIView+FYAdd.m"; path = "ScrollYearViewDemo/ScrollYearViewDemo/Category/UIView+FYAdd.m"; sourceTree = "<group>"; };
+		442222D395CBA62B86358BD71466CF5B /* CustomScrollYearView-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "CustomScrollYearView-prefix.pch"; sourceTree = "<group>"; };
 		4771F33AC96AEC3B306891FAC334A0D0 /* Pods-ScrollYearViewDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-ScrollYearViewDemo.debug.xcconfig"; sourceTree = "<group>"; };
 		47C1580FFA3A08452C45B0960864E805 /* Pods_ScrollYearViewDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_ScrollYearViewDemo.framework; path = "Pods-ScrollYearViewDemo.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
-		5C12DC513ABAA03D14B303EA32C3F3B6 /* CustomScrollYearView.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = CustomScrollYearView.xcconfig; sourceTree = "<group>"; };
-		653287443611C05C5B62CCF3FCD2A1A6 /* ScrollYearCollectionViewCell.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ScrollYearCollectionViewCell.h; path = ScrollYearViewDemo/ScrollYearViewDemo/CustomScrollYearView/Subviews/ScrollYearCollectionViewCell.h; sourceTree = "<group>"; };
-		65F2B26AFFF613BC59FB95C00471629A /* CustomScrollYearView-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "CustomScrollYearView-Info.plist"; sourceTree = "<group>"; };
-		71B3D8F9F76A271B68FD189437A094ED /* CALayer+FYAdd.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "CALayer+FYAdd.m"; path = "ScrollYearViewDemo/ScrollYearViewDemo/Category/CALayer+FYAdd.m"; sourceTree = "<group>"; };
-		8448125E0AF2044B6E9A2601F4616BA1 /* ScrollYearRuleViewConfig.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = ScrollYearRuleViewConfig.m; path = ScrollYearViewDemo/ScrollYearViewDemo/CustomScrollYearView/ScrollYearRuleViewConfig.m; sourceTree = "<group>"; };
-		8B9D200F15A3E0CF1AF5BAB34A78B384 /* ScrollYearRuleView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ScrollYearRuleView.h; path = ScrollYearViewDemo/ScrollYearViewDemo/CustomScrollYearView/ScrollYearRuleView.h; sourceTree = "<group>"; };
-		9369FF73D5D992078BF69FA5747138B9 /* CALayer+FYAdd.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "CALayer+FYAdd.h"; path = "ScrollYearViewDemo/ScrollYearViewDemo/Category/CALayer+FYAdd.h"; sourceTree = "<group>"; };
-		96ACF6A17ABC19047A16A85FDC1E5389 /* ScrollYearRuleCollectionViewLayout.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ScrollYearRuleCollectionViewLayout.h; path = ScrollYearViewDemo/ScrollYearViewDemo/CustomScrollYearView/Layout/ScrollYearRuleCollectionViewLayout.h; sourceTree = "<group>"; };
+		588BC38E46DADB54311E83B94969CABC /* ScrollYearRuleViewConfig.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ScrollYearRuleViewConfig.h; path = ScrollYearViewDemo/ScrollYearViewDemo/CustomScrollYearView/ScrollYearRuleViewConfig.h; sourceTree = "<group>"; };
+		66C539F1F7CCA74F0878A28503348F14 /* CALayer+FYAdd.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "CALayer+FYAdd.m"; path = "ScrollYearViewDemo/ScrollYearViewDemo/Category/CALayer+FYAdd.m"; sourceTree = "<group>"; };
+		7428999CF65ED3461F9CB5D11EEDF828 /* UIView+FYAdd.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIView+FYAdd.h"; path = "ScrollYearViewDemo/ScrollYearViewDemo/Category/UIView+FYAdd.h"; sourceTree = "<group>"; };
 		97F84407BA6C832566A1A0683E5840BA /* Pods-ScrollYearViewDemo-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-ScrollYearViewDemo-acknowledgements.plist"; sourceTree = "<group>"; };
-		991955642BEF081DB45C7CED8BB67E50 /* CustomScrollYearView.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = CustomScrollYearView.modulemap; sourceTree = "<group>"; };
 		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		9FC079ABE0E66892D3189DCC53B9383D /* CustomScrollYearView-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "CustomScrollYearView-prefix.pch"; sourceTree = "<group>"; };
-		A3185DB62483C7F7F512CC183E100C66 /* ScrollYearRuleViewConfig.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ScrollYearRuleViewConfig.h; path = ScrollYearViewDemo/ScrollYearViewDemo/CustomScrollYearView/ScrollYearRuleViewConfig.h; sourceTree = "<group>"; };
 		A580767C77A8CFF60AFDDD226ECE440B /* Pods-ScrollYearViewDemo-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-ScrollYearViewDemo-Info.plist"; sourceTree = "<group>"; };
+		A5CA644863427987E1A677D58DFAD807 /* ScrollYearRuleView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ScrollYearRuleView.h; path = ScrollYearViewDemo/ScrollYearViewDemo/CustomScrollYearView/ScrollYearRuleView.h; sourceTree = "<group>"; };
+		A80A04414C09F6275EFE0974A37200C9 /* CustomScrollYearView-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "CustomScrollYearView-Info.plist"; sourceTree = "<group>"; };
+		AC21FD9560036B71535DD39E9E957E54 /* ScrollYearRuleView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = ScrollYearRuleView.m; path = ScrollYearViewDemo/ScrollYearViewDemo/CustomScrollYearView/ScrollYearRuleView.m; sourceTree = "<group>"; };
 		AE238D42CB4186279F3A1067C73460FF /* Pods-ScrollYearViewDemo-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-ScrollYearViewDemo-acknowledgements.markdown"; sourceTree = "<group>"; };
-		AE3AF93A8CEBD17CD9A84D9A3DB9F9FB /* ScrollYearRuleView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = ScrollYearRuleView.m; path = ScrollYearViewDemo/ScrollYearViewDemo/CustomScrollYearView/ScrollYearRuleView.m; sourceTree = "<group>"; };
-		B2176ACAC018F8F0463162A996768923 /* CustomScrollYearView-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "CustomScrollYearView-dummy.m"; sourceTree = "<group>"; };
-		BFF75EC7A7738C31204CD01D3AA0E36D /* UIView+FYAdd.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIView+FYAdd.m"; path = "ScrollYearViewDemo/ScrollYearViewDemo/Category/UIView+FYAdd.m"; sourceTree = "<group>"; };
-		C5990D9824A4B5C8B80F7770087D3BC4 /* CustomScrollYearView-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "CustomScrollYearView-umbrella.h"; sourceTree = "<group>"; };
-		D90DCFE49DE1D3AA107201957B50359A /* UIView+FYAdd.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIView+FYAdd.h"; path = "ScrollYearViewDemo/ScrollYearViewDemo/Category/UIView+FYAdd.h"; sourceTree = "<group>"; };
+		BC0F104E1A3F71187DFF9AF023F5AAC0 /* CustomScrollYearView.bundle */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "wrapper.plug-in"; name = CustomScrollYearView.bundle; path = ScrollYearViewDemo/ScrollYearViewDemo/CustomScrollYearView.bundle; sourceTree = "<group>"; };
+		C30B64A5D7B161FC4D7A68B6618E018C /* ScrollYearCollectionViewCell.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ScrollYearCollectionViewCell.h; path = ScrollYearViewDemo/ScrollYearViewDemo/CustomScrollYearView/Subviews/ScrollYearCollectionViewCell.h; sourceTree = "<group>"; };
+		CC966F159AFE5459006967C481949F83 /* ScrollYearRuleCollectionViewLayout.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = ScrollYearRuleCollectionViewLayout.m; path = ScrollYearViewDemo/ScrollYearViewDemo/CustomScrollYearView/Layout/ScrollYearRuleCollectionViewLayout.m; sourceTree = "<group>"; };
+		CF4B7D960D3713A5EE654658747C67C7 /* CustomScrollYearView.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = CustomScrollYearView.xcconfig; sourceTree = "<group>"; };
+		DC6C7D2F200AEE08D73FC0D279183A04 /* CALayer+FYAdd.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "CALayer+FYAdd.h"; path = "ScrollYearViewDemo/ScrollYearViewDemo/Category/CALayer+FYAdd.h"; sourceTree = "<group>"; };
 		DE576F820A2EC37DA77DE8146A0647F2 /* CustomScrollYearView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = CustomScrollYearView.framework; path = CustomScrollYearView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E6A6D1FBCDE2C9B56DDCB74C16554079 /* CustomScrollYearView-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "CustomScrollYearView-dummy.m"; sourceTree = "<group>"; };
 		ECB69F42AF7114A35BADACB647B22A1E /* Pods-ScrollYearViewDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-ScrollYearViewDemo.release.xcconfig"; sourceTree = "<group>"; };
-		EF50A538D51BD63F688FB6729B2053E2 /* ScrollYearRuleCollectionViewLayout.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = ScrollYearRuleCollectionViewLayout.m; path = ScrollYearViewDemo/ScrollYearViewDemo/CustomScrollYearView/Layout/ScrollYearRuleCollectionViewLayout.m; sourceTree = "<group>"; };
+		F2779E3E7C208F159D80775D7D006D3A /* CustomScrollYearView-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "CustomScrollYearView-umbrella.h"; sourceTree = "<group>"; };
 		FD6B5FB9ABE6D4D4DB0BF65CED4EAD63 /* Pods-ScrollYearViewDemo-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-ScrollYearViewDemo-umbrella.h"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		3E7ACCBF2616DDC1570358EE41B4D4E6 /* Frameworks */ = {
+		9E1A07BDD810C967B877838419511795 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				45BCB38642761D0C7CF23D59A679AC15 /* Foundation.framework in Frameworks */,
+				5B318E8BF035EF7B69DCC69C59DF94E6 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -91,13 +93,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		067189B1464828ACBC5BBBBB8BE7938C /* Category */ = {
+		156F8F153021AA8A3B8AC2DF360BF55F /* Category */ = {
 			isa = PBXGroup;
 			children = (
-				9369FF73D5D992078BF69FA5747138B9 /* CALayer+FYAdd.h */,
-				71B3D8F9F76A271B68FD189437A094ED /* CALayer+FYAdd.m */,
-				D90DCFE49DE1D3AA107201957B50359A /* UIView+FYAdd.h */,
-				BFF75EC7A7738C31204CD01D3AA0E36D /* UIView+FYAdd.m */,
+				DC6C7D2F200AEE08D73FC0D279183A04 /* CALayer+FYAdd.h */,
+				66C539F1F7CCA74F0878A28503348F14 /* CALayer+FYAdd.m */,
+				7428999CF65ED3461F9CB5D11EEDF828 /* UIView+FYAdd.h */,
+				40ED9E83DBA270CE5E0D329DB9F87D11 /* UIView+FYAdd.m */,
 			);
 			name = Category;
 			sourceTree = "<group>";
@@ -111,13 +113,21 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		40DBE87889953D6639CD76134B413978 /* Layout */ = {
+		3D41EBFD5376F0247F962E2B73BE04A0 /* CustomScrollYearView */ = {
 			isa = PBXGroup;
 			children = (
-				96ACF6A17ABC19047A16A85FDC1E5389 /* ScrollYearRuleCollectionViewLayout.h */,
-				EF50A538D51BD63F688FB6729B2053E2 /* ScrollYearRuleCollectionViewLayout.m */,
+				A5CA644863427987E1A677D58DFAD807 /* ScrollYearRuleView.h */,
+				AC21FD9560036B71535DD39E9E957E54 /* ScrollYearRuleView.m */,
+				588BC38E46DADB54311E83B94969CABC /* ScrollYearRuleViewConfig.h */,
+				019019F4DEAFF826C17834E00ADF7576 /* ScrollYearRuleViewConfig.m */,
+				156F8F153021AA8A3B8AC2DF360BF55F /* Category */,
+				FCE5D1DE58E7053425E1B7A58E5FFAF7 /* Layout */,
+				4973985CA8B90DF9BD04CD7E2718C13A /* Resources */,
+				7A2E602985CBE36BFB3A6EDE78F0D9C0 /* Subviews */,
+				E6872E25942779CE920BE667E226E91E /* Support Files */,
 			);
-			name = Layout;
+			name = CustomScrollYearView;
+			path = CustomScrollYearView;
 			sourceTree = "<group>";
 		};
 		42566D455B75463E0E032CB9C8F099A3 /* Targets Support Files */ = {
@@ -128,37 +138,29 @@
 			name = "Targets Support Files";
 			sourceTree = "<group>";
 		};
-		815866364A98943FBD3EE511EEF01186 /* CustomScrollYearView */ = {
+		4973985CA8B90DF9BD04CD7E2718C13A /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				8B9D200F15A3E0CF1AF5BAB34A78B384 /* ScrollYearRuleView.h */,
-				AE3AF93A8CEBD17CD9A84D9A3DB9F9FB /* ScrollYearRuleView.m */,
-				A3185DB62483C7F7F512CC183E100C66 /* ScrollYearRuleViewConfig.h */,
-				8448125E0AF2044B6E9A2601F4616BA1 /* ScrollYearRuleViewConfig.m */,
-				067189B1464828ACBC5BBBBB8BE7938C /* Category */,
-				40DBE87889953D6639CD76134B413978 /* Layout */,
-				AFC2E9D39EF85EE0709EEE0BED54C3F2 /* Subviews */,
-				D8E8A382A20E232A3C61A1143B46EE09 /* Support Files */,
+				BC0F104E1A3F71187DFF9AF023F5AAC0 /* CustomScrollYearView.bundle */,
 			);
-			name = CustomScrollYearView;
-			path = CustomScrollYearView;
+			name = Resources;
 			sourceTree = "<group>";
 		};
-		AFC2E9D39EF85EE0709EEE0BED54C3F2 /* Subviews */ = {
+		69F0E9D0CD05F34FD4578836D8905DA4 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				653287443611C05C5B62CCF3FCD2A1A6 /* ScrollYearCollectionViewCell.h */,
-				17FADA8C6ADE5B547BC59DACB8BF7E05 /* ScrollYearCollectionViewCell.m */,
-			);
-			name = Subviews;
-			sourceTree = "<group>";
-		};
-		C01583F7286C90D1F826F82FB7285C35 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				815866364A98943FBD3EE511EEF01186 /* CustomScrollYearView */,
+				3D41EBFD5376F0247F962E2B73BE04A0 /* CustomScrollYearView */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		7A2E602985CBE36BFB3A6EDE78F0D9C0 /* Subviews */ = {
+			isa = PBXGroup;
+			children = (
+				C30B64A5D7B161FC4D7A68B6618E018C /* ScrollYearCollectionViewCell.h */,
+				175D932C430E785EF148556685EBD070 /* ScrollYearCollectionViewCell.m */,
+			);
+			name = Subviews;
 			sourceTree = "<group>";
 		};
 		C0834CEBB1379A84116EF29F93051C60 /* iOS */ = {
@@ -174,7 +176,7 @@
 			children = (
 				9D940727FF8FB9C785EB98E56350EF41 /* Podfile */,
 				D210D550F4EA176C3123ED886F8F87F5 /* Frameworks */,
-				C01583F7286C90D1F826F82FB7285C35 /* Pods */,
+				69F0E9D0CD05F34FD4578836D8905DA4 /* Pods */,
 				3172116D2ACC4A79195E70B6D6EBDADF /* Products */,
 				42566D455B75463E0E032CB9C8F099A3 /* Targets Support Files */,
 			);
@@ -205,34 +207,43 @@
 			path = "Target Support Files/Pods-ScrollYearViewDemo";
 			sourceTree = "<group>";
 		};
-		D8E8A382A20E232A3C61A1143B46EE09 /* Support Files */ = {
+		E6872E25942779CE920BE667E226E91E /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				991955642BEF081DB45C7CED8BB67E50 /* CustomScrollYearView.modulemap */,
-				5C12DC513ABAA03D14B303EA32C3F3B6 /* CustomScrollYearView.xcconfig */,
-				B2176ACAC018F8F0463162A996768923 /* CustomScrollYearView-dummy.m */,
-				65F2B26AFFF613BC59FB95C00471629A /* CustomScrollYearView-Info.plist */,
-				9FC079ABE0E66892D3189DCC53B9383D /* CustomScrollYearView-prefix.pch */,
-				C5990D9824A4B5C8B80F7770087D3BC4 /* CustomScrollYearView-umbrella.h */,
+				0A9CDEDC103A50CA9334A473CCBC7FBF /* CustomScrollYearView.modulemap */,
+				CF4B7D960D3713A5EE654658747C67C7 /* CustomScrollYearView.xcconfig */,
+				E6A6D1FBCDE2C9B56DDCB74C16554079 /* CustomScrollYearView-dummy.m */,
+				A80A04414C09F6275EFE0974A37200C9 /* CustomScrollYearView-Info.plist */,
+				442222D395CBA62B86358BD71466CF5B /* CustomScrollYearView-prefix.pch */,
+				F2779E3E7C208F159D80775D7D006D3A /* CustomScrollYearView-umbrella.h */,
 			);
 			name = "Support Files";
 			path = "../Target Support Files/CustomScrollYearView";
 			sourceTree = "<group>";
 		};
+		FCE5D1DE58E7053425E1B7A58E5FFAF7 /* Layout */ = {
+			isa = PBXGroup;
+			children = (
+				15594429DA75984F2DCD39F9D6DF56B5 /* ScrollYearRuleCollectionViewLayout.h */,
+				CC966F159AFE5459006967C481949F83 /* ScrollYearRuleCollectionViewLayout.m */,
+			);
+			name = Layout;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		645EC05D797D83C1DA3387705279248B /* Headers */ = {
+		9B357E616C6B367A2264A9EFA8CC33F8 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CF5112957AEA583492467F3AC4879D85 /* CALayer+FYAdd.h in Headers */,
-				C10F7925DA058580B4898AC08603BD8C /* CustomScrollYearView-umbrella.h in Headers */,
-				E7880A9D3E3E0192726EC3C656A32A36 /* ScrollYearCollectionViewCell.h in Headers */,
-				0695AE2998320F2D5B91FC2894E5CAD6 /* ScrollYearRuleCollectionViewLayout.h in Headers */,
-				E86EE3B7DEAB1DF28F2CB68985C86D6E /* ScrollYearRuleView.h in Headers */,
-				67B56AE7C40D59A82568B6536E63F9FF /* ScrollYearRuleViewConfig.h in Headers */,
-				CCCA884B26F2FD5389EB1E58ED57E532 /* UIView+FYAdd.h in Headers */,
+				FEC7C735C8A6706E0C31EF9CE16927D6 /* CALayer+FYAdd.h in Headers */,
+				858A298DFDB1517362D9514E258C852C /* CustomScrollYearView-umbrella.h in Headers */,
+				FAAD4D2A5B1866D8229F8B40B71EA495 /* ScrollYearCollectionViewCell.h in Headers */,
+				287013C7F545FB5704F295D0D12A55BB /* ScrollYearRuleCollectionViewLayout.h in Headers */,
+				1D26DBF3DB24D289B3FE99EEC3457BBE /* ScrollYearRuleView.h in Headers */,
+				425B225926212FB2033BF11CF7D81029 /* ScrollYearRuleViewConfig.h in Headers */,
+				BF96DBD5FBBF1BC88554FB3B5A67AF4F /* UIView+FYAdd.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -249,12 +260,12 @@
 /* Begin PBXNativeTarget section */
 		2C08CC433404C21899B442E326C9A299 /* CustomScrollYearView */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = D7796D1445AF61151E4121672C511AF7 /* Build configuration list for PBXNativeTarget "CustomScrollYearView" */;
+			buildConfigurationList = A962F366372CB5BF679A4BA61257264A /* Build configuration list for PBXNativeTarget "CustomScrollYearView" */;
 			buildPhases = (
-				645EC05D797D83C1DA3387705279248B /* Headers */,
-				6A1C5218654023DC2683180622BB0546 /* Sources */,
-				3E7ACCBF2616DDC1570358EE41B4D4E6 /* Frameworks */,
-				E07277E8C1D27B4A478E4AB5E910DC77 /* Resources */,
+				9B357E616C6B367A2264A9EFA8CC33F8 /* Headers */,
+				F9B07A4F75AB0EA963FB5BBDF610979F /* Sources */,
+				9E1A07BDD810C967B877838419511795 /* Frameworks */,
+				D5734481E4F3D9B0592A190A8FAAB813 /* Resources */,
 			);
 			buildRules = (
 			);
@@ -294,7 +305,7 @@
 				LastUpgradeCheck = 1100;
 			};
 			buildConfigurationList = 4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */;
-			compatibilityVersion = "Xcode 9.3";
+			compatibilityVersion = "Xcode 10.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -320,35 +331,36 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		E07277E8C1D27B4A478E4AB5E910DC77 /* Resources */ = {
+		D5734481E4F3D9B0592A190A8FAAB813 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				69B24EE3B2E7E873820AB0ECD86B078D /* CustomScrollYearView.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		6A1C5218654023DC2683180622BB0546 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				39A7A50E6994F72D1669ED63F1967D66 /* CALayer+FYAdd.m in Sources */,
-				341278F19D87633CFD953099D0E1DC9D /* CustomScrollYearView-dummy.m in Sources */,
-				6423AAE8B251DAFB90D7160648A5E727 /* ScrollYearCollectionViewCell.m in Sources */,
-				205F8B7B85115B0A531A16DD060F47EB /* ScrollYearRuleCollectionViewLayout.m in Sources */,
-				C9F15C5A9E4BB0E727E7D3195F94A72F /* ScrollYearRuleView.m in Sources */,
-				0CD77CD1066F3AF7DA8414C5CF63A355 /* ScrollYearRuleViewConfig.m in Sources */,
-				752680EFCF520AAA02F5CBA89614CEB0 /* UIView+FYAdd.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		BB3D2083A50708766CA22AA0815E75EA /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				B16C4519A40199B8F39AC5DAFB3E5AB6 /* Pods-ScrollYearViewDemo-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F9B07A4F75AB0EA963FB5BBDF610979F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1EB804802463A30F328FAC8A7782C817 /* CALayer+FYAdd.m in Sources */,
+				D04DD8C25FDC18ED5ED5CD81F546AA99 /* CustomScrollYearView-dummy.m in Sources */,
+				66360FC750DD14D510CAE153AEAB75C8 /* ScrollYearCollectionViewCell.m in Sources */,
+				8A52504EF0E97EDA029B96ACBA1DAB3A /* ScrollYearRuleCollectionViewLayout.m in Sources */,
+				4273ACC61861FD7AAC9FE93EC2E70860 /* ScrollYearRuleView.m in Sources */,
+				28551D33D7EA3D317F466683885CCF4D /* ScrollYearRuleViewConfig.m in Sources */,
+				22106D27D9B89780FBBB482C140CFA7D /* UIView+FYAdd.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -364,9 +376,9 @@
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		2DCE6AB153C8C0AA05A69F157A47BAB9 /* Debug */ = {
+		520E2EEDFE842B48783F07F0ADE3E62E /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5C12DC513ABAA03D14B303EA32C3F3B6 /* CustomScrollYearView.xcconfig */;
+			baseConfigurationReference = CF4B7D960D3713A5EE654658747C67C7 /* CustomScrollYearView.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -597,9 +609,9 @@
 			};
 			name = Release;
 		};
-		EF69AF2F39F66052163239CE38F03E20 /* Release */ = {
+		D02861EFFADAA1A4A7F93CC2BAA583E0 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5C12DC513ABAA03D14B303EA32C3F3B6 /* CustomScrollYearView.xcconfig */;
+			baseConfigurationReference = CF4B7D960D3713A5EE654658747C67C7 /* CustomScrollYearView.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -653,11 +665,11 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		D7796D1445AF61151E4121672C511AF7 /* Build configuration list for PBXNativeTarget "CustomScrollYearView" */ = {
+		A962F366372CB5BF679A4BA61257264A /* Build configuration list for PBXNativeTarget "CustomScrollYearView" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				2DCE6AB153C8C0AA05A69F157A47BAB9 /* Debug */,
-				EF69AF2F39F66052163239CE38F03E20 /* Release */,
+				520E2EEDFE842B48783F07F0ADE3E62E /* Debug */,
+				D02861EFFADAA1A4A7F93CC2BAA583E0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

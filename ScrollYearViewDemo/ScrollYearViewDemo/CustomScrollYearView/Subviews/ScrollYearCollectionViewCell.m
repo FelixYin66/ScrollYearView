@@ -30,29 +30,33 @@
 
 - (void)layoutSubviews{
     [super layoutSubviews];
-    CGFloat right = self.collectionView.width*0.5 - self.config.scaleSpace;
+//    CGFloat right = self.collectionView.width*0.5 - self.config.scaleSpace;
     NSInteger year = [self showYear:self.item];
+    CGFloat left = year > 0 ? 0 : (self.config.longScaleSize - self.config.shortScaleSize);//self.collectionView.width*0.5 - self.config.scaleSpace;
     if(year > 0){
         self.scaleLayer.size = CGSizeMake(self.config.longScaleSize, self.config.scaleWeigth);
-        self.scaleLayer.right = right;
+        self.scaleLayer.left = left;
         self.scaleLayer.top = 0;
         self.scaleLayer.backgroundColor = self.config.scaleColor.CGColor;
         self.scaleLayer.cornerRadius = self.config.scaleWeigth*0.5;
         NSString *text = [@"" stringByAppendingFormat:@"%zd",year];
         UIFont *font = self.isSetup ? self.config.textMaxFont : self.config.textFont;
         CGSize size = [text boundingRectWithSize:CGSizeMake(self.width, CGFLOAT_MAX) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:font} context:nil].size;
-        self.textLayer.size = size;
-        self.textLayer.right = self.width - 30;
+        CGFloat width = self.width - self.config.longScaleSize - self.config.circleLineWeight - self.config.circleLineToScaleSpace;
+        self.textLayer.size = CGSizeMake(width, size.height);//size;
+        self.textLayer.left = self.width - width;
         self.textLayer.centerY = self.height*0.5;
         self.textLayer.string = [[NSAttributedString alloc] initWithString:text attributes:@{NSFontAttributeName: font, NSForegroundColorAttributeName:self.config.textColor}];
         self.textLayer.actions = @{@"contents": [NSNull null]};
     }else{
         NSString *text = [@"" stringByAppendingFormat:@"%zd",self.config.max];
-        CGSize size = [text boundingRectWithSize:CGSizeMake(self.width, CGFLOAT_MAX) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:self.config.textMaxFont} context:nil].size;;
-        self.textLayer.size = size;
+        CGSize size = [text boundingRectWithSize:CGSizeMake(self.width, CGFLOAT_MAX) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:self.config.textMaxFont} context:nil].size;
+        CGFloat width = self.width - self.config.longScaleSize - self.config.circleLineWeight - self.config.circleLineToScaleSpace;
+        self.textLayer.size = CGSizeMake(width, size.height);
+        self.textLayer.left = self.width - width;
         self.textLayer.string = nil;
         self.scaleLayer.size = CGSizeMake(self.config.shortScaleSize, self.config.scaleWeigth);
-        self.scaleLayer.right = right;
+        self.scaleLayer.left = left;
         self.scaleLayer.top = 0;
         self.scaleLayer.backgroundColor = self.config.scaleColor.CGColor;
         self.scaleLayer.cornerRadius = self.config.scaleWeigth*0.5;
@@ -76,8 +80,9 @@
     NSInteger showIndex = [self showYear:self.item];
     NSString *text = [@"" stringByAppendingFormat:@"%zd",showIndex];
     CGSize size = [text boundingRectWithSize:CGSizeMake(self.width, CGFLOAT_MAX) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:self.config.textMaxFont} context:nil].size;
-    self.textLayer.size = size;
-    self.textLayer.right = self.width - 30;
+    CGFloat width = self.width - self.config.longScaleSize - self.config.circleLineWeight - self.config.circleLineToScaleSpace;
+    self.textLayer.size = CGSizeMake(width, size.height);
+    self.textLayer.left = self.width - width;
     self.textLayer.centerY = self.height*0.5;
     self.textLayer.string = [[NSAttributedString alloc] initWithString:text attributes:@{NSFontAttributeName: self.config.textMaxFont, NSForegroundColorAttributeName:self.config.textColor}];
     self.textLayer.actions = @{@"contents": [NSNull null]};
@@ -88,8 +93,9 @@
     if(showIndex > 0){
         NSString *text = [@"" stringByAppendingFormat:@"%zd",showIndex];
         CGSize size = [text boundingRectWithSize:CGSizeMake(self.width, CGFLOAT_MAX) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:self.config.textFont} context:nil].size;
-        self.textLayer.size = size;
-        self.textLayer.right = self.width - 30;
+        CGFloat width = self.width - self.config.longScaleSize - self.config.circleLineWeight - self.config.circleLineToScaleSpace;
+        self.textLayer.size = CGSizeMake(width, size.height);
+        self.textLayer.left = self.width - width;
         self.textLayer.centerY = self.height*0.5;
         self.textLayer.string = [[NSAttributedString alloc] initWithString:text attributes:@{NSFontAttributeName: self.config.textFont, NSForegroundColorAttributeName:self.config.textColor}];
         self.textLayer.actions = @{@"contents": [NSNull null]};
@@ -109,8 +115,8 @@
 }
 
 - (void)updateNormalIndicator{
-    CGFloat right = self.collectionView.width*0.5 - self.config.scaleSpace;
-    _scaleLayer.right = right;
+    CGFloat left = [self showYear:self.item] ? 0 : (self.config.longScaleSize - self.config.shortScaleSize);
+    _scaleLayer.left = left;
 }
 
 //    MARK: lazy loading
