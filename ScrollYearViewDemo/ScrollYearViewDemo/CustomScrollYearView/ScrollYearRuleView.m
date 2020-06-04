@@ -72,7 +72,6 @@
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView{
     
-    NSLog(@"===scrollViewDidScroll");
     CGFloat offset = scrollView.contentOffset.y + _collectionView.height*0.5;//_collectionView.contentInset.top;
     NSInteger index = roundl(offset / (_config.scaleWeigth + _config.scaleSpace));
     NSInteger c = index%_config.perScaleCount;
@@ -268,8 +267,6 @@
             self.selectIndex = index;
             NSIndexPath *indexPath = [NSIndexPath indexPathForItem:index inSection:0];
             [self.collectionView scrollToItemAtIndexPath:indexPath atScrollPosition:UICollectionViewScrollPositionCenteredVertically animated:NO];
-            
-            NSLog(@"=====");
         }else{
             self.isSetup = YES;
             NSInteger middleCount = self.config.sectionCount/2;
