@@ -1,11 +1,11 @@
 PODS:
-  - CustomScrollYearView (1.0):
-    - CustomScrollYearView/Category (= 1.0)
-    - CustomScrollYearView/Layout (= 1.0)
-    - CustomScrollYearView/Subviews (= 1.0)
-  - CustomScrollYearView/Category (1.0)
-  - CustomScrollYearView/Layout (1.0)
-  - CustomScrollYearView/Subviews (1.0)
+  - CustomScrollYearView (1.1):
+    - CustomScrollYearView/Category (= 1.1)
+    - CustomScrollYearView/Layout (= 1.1)
+    - CustomScrollYearView/Subviews (= 1.1)
+  - CustomScrollYearView/Category (1.1)
+  - CustomScrollYearView/Layout (1.1)
+  - CustomScrollYearView/Subviews (1.1)
 
 DEPENDENCIES:
   - CustomScrollYearView (from `https://github.com/FelixYin66/ScrollYearView.git`)
@@ -16,11 +16,11 @@ EXTERNAL SOURCES:
 
 CHECKOUT OPTIONS:
   CustomScrollYearView:
-    :commit: a3fcaac2edeef80d4665a76171393c615b30a331
+    :commit: 19755dc1aa45701ddcbe66d2c647f31475ffc5b4
     :git: https://github.com/FelixYin66/ScrollYearView.git
 
 SPEC CHECKSUMS:
-  CustomScrollYearView: 1861dfeeabdd73b4cf4ad83a86bb0c08958ecf84
+  CustomScrollYearView: ff98093bcf357fc32e46a7f7ac07fed0125abbe1
 
 PODFILE CHECKSUM: 3d51b241990c5f2b0c0ce983e418d8763bec5619
 

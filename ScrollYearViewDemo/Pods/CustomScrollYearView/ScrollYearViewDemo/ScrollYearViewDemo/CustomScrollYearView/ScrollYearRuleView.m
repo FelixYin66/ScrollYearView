@@ -27,6 +27,21 @@
 
 @implementation ScrollYearRuleView
 
+
+- (instancetype)initWithFrame:(CGRect)frame config:(ScrollYearRuleViewConfig *)config{
+    self = [super initWithFrame:frame];
+        if (self) {
+            _config = config;
+            [self addSubview:self.collectionView];
+            [self.layer addSublayer:self.lineIndicatorLayer];
+            [self.layer addSublayer:self.topGradientLayer];
+            [self.layer addSublayer:self.bottomGradientLayer];
+    //        [self.layer addSublayer:[self drawLine]];
+//            [self.layer addSublayer:self.indicatorLayer];
+        }
+        return self;
+}
+
 - (instancetype)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
@@ -302,6 +317,16 @@
         _collectionView.bounces = NO;
         _collectionView.decelerationRate = 0.0;
         _collectionView.backgroundColor = _config.scaleBgColor;
+        if (@available(iOS 11.0, *)) {
+            _collectionView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
+        } else {
+            if (@available(iOS 13.0, *)) {
+                _collectionView.automaticallyAdjustsScrollIndicatorInsets = NO;
+            } else {
+                // Fallback on earlier versions
+            }
+        }
+        
 //        CGFloat top = self.height*0.5;
 //        CGFloat bottom = self.height*0.5;
 //        UIEdgeInsets inset = UIEdgeInsetsMake(top,0,bottom,0);
@@ -319,7 +344,7 @@
         _lineIndicatorLayer.height = _collectionView.height;
         _lineIndicatorLayer.width = self.config.circleLineWeight;
         _lineIndicatorLayer.centerY = self.height*0.5;
-        _lineIndicatorLayer.left = _collectionView.width*0.5;
+        _lineIndicatorLayer.left = self.config.longScaleSize + self.config.circleLineToScaleSpace;//_collectionView.width*0.5;
     }
     return _lineIndicatorLayer;
 }

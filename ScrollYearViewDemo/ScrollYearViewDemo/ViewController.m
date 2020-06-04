@@ -45,7 +45,8 @@
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
 //    [self testConverCoordinate];
     self.yearView2.config.min = 1900;
-    self.yearView2.config.max = 2030;
+    self.yearView2.config.max = 2017;
+    self.yearView2.config.defaultSelectedYear = 1900;
     [self.yearView2 refreshData];
 }
 

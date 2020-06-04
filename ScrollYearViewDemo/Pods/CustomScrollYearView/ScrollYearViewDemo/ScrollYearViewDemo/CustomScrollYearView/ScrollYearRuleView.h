@@ -24,6 +24,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic,weak) id<ScrollYearRuleViewDelegate> delegate;
 @property(nonatomic,strong) ScrollYearRuleViewConfig *config;
 
+- (instancetype) initWithFrame:(CGRect)frame config:(ScrollYearRuleViewConfig *) config;
+
 - (void) refreshData;
 
 @end
