@@ -22,6 +22,7 @@
 @property(nonatomic,strong) CAGradientLayer *bottomGradientLayer;
 @property(nonatomic,assign) NSInteger selectIndex;
 @property(nonatomic,assign) BOOL isSetup;
+@property(nonatomic,strong) UIImpactFeedbackGenerator *feedBackGenerator;
 
 @end
 
@@ -66,6 +67,8 @@
     NSInteger indexOfCell = self.selectIndex;
     ScrollYearCollectionViewCell *cell = (ScrollYearCollectionViewCell *)[_collectionView cellForItemAtIndexPath:[NSIndexPath indexPathForRow:indexOfCell inSection:0]];
     [cell makeCellSelected];
+    //添加反馈效果
+    [self.feedBackGenerator impactOccurred];
 }
 
 //    MARK: Delegate
@@ -145,6 +148,7 @@
             }
     });
 }
+
 
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView{
     BOOL scrollToScrollStop = !scrollView.tracking && !scrollView.dragging && !scrollView.decelerating;
@@ -413,6 +417,14 @@
         _config = [[ScrollYearRuleViewConfig alloc] init];
     }
     return _config;
+}
+
+//
+- (UIImpactFeedbackGenerator *)feedBackGenerator{
+    if (!_feedBackGenerator) {
+        _feedBackGenerator = [[UIImpactFeedbackGenerator alloc] initWithStyle:UIImpactFeedbackStyleMedium];
+    }
+    return _feedBackGenerator;
 }
 
 //- (NSMutableArray *)indexArray{
