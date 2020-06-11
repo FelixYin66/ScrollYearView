@@ -14,6 +14,7 @@
 		865E523E2472828F004F65FE /* UIView+FYAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = 865E523D2472828F004F65FE /* UIView+FYAdd.m */; };
 		865E52412472829D004F65FE /* CALayer+FYAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = 865E52402472829D004F65FE /* CALayer+FYAdd.m */; };
 		865E524424728655004F65FE /* ScrollYearRuleViewConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 865E524324728655004F65FE /* ScrollYearRuleViewConfig.m */; };
+		866482DF2491E28600AD4DE1 /* CustomScrollYearView.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 866482DE2491E28600AD4DE1 /* CustomScrollYearView.podspec */; };
 		86745181246BC65E004A7602 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 86745180246BC65E004A7602 /* AppDelegate.m */; };
 		86745184246BC65E004A7602 /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 86745183246BC65E004A7602 /* SceneDelegate.m */; };
 		86745187246BC65E004A7602 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 86745186246BC65E004A7602 /* ViewController.m */; };
@@ -41,6 +42,7 @@
 		865E52402472829D004F65FE /* CALayer+FYAdd.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "CALayer+FYAdd.m"; sourceTree = "<group>"; };
 		865E524224728655004F65FE /* ScrollYearRuleViewConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ScrollYearRuleViewConfig.h; sourceTree = "<group>"; };
 		865E524324728655004F65FE /* ScrollYearRuleViewConfig.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ScrollYearRuleViewConfig.m; sourceTree = "<group>"; };
+		866482DE2491E28600AD4DE1 /* CustomScrollYearView.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = CustomScrollYearView.podspec; path = ../../CustomScrollYearView.podspec; sourceTree = "<group>"; };
 		8674517C246BC65E004A7602 /* ScrollYearViewDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ScrollYearViewDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8674517F246BC65E004A7602 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		86745180246BC65E004A7602 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -151,6 +153,7 @@
 		8674517E246BC65E004A7602 /* ScrollYearViewDemo */ = {
 			isa = PBXGroup;
 			children = (
+				866482DE2491E28600AD4DE1 /* CustomScrollYearView.podspec */,
 				865E523B2472827A004F65FE /* Category */,
 				865E522F2472812C004F65FE /* CustomScrollYearView */,
 				86745198246BC692004A7602 /* ScrollYearView */,
@@ -238,6 +241,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8674518F246BC660004A7602 /* LaunchScreen.storyboard in Resources */,
+				866482DF2491E28600AD4DE1 /* CustomScrollYearView.podspec in Resources */,
 				86EB34F4247E7079005E29CE /* CustomScrollYearView.bundle in Resources */,
 				8674518C246BC660004A7602 /* Assets.xcassets in Resources */,
 				8674518A246BC65E004A7602 /* Main.storyboard in Resources */,
