@@ -423,6 +423,7 @@
 - (UIImpactFeedbackGenerator *)feedBackGenerator{
     if (!_feedBackGenerator) {
         _feedBackGenerator = [[UIImpactFeedbackGenerator alloc] initWithStyle:UIImpactFeedbackStyleMedium];
+        [_feedBackGenerator prepare];
     }
     return _feedBackGenerator;
 }
